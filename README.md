@@ -7,7 +7,7 @@ Path: /tinfoil.json
 Title: Open NX
 ```
 
-For full details of the stores click [here](https://github.com/melogabriel/tinfoil-shops).
+For full details of the shops click [here](https://github.com/melogabriel/tinfoil-shops).
 
 To check which tinfoil shops are working now, go to [this repository](https://github.com/melogabriel/tinfoil-shops-status).
 
