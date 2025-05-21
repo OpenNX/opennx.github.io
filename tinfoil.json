@@ -4,7 +4,7 @@
         {"url": "https://nx-saves.ghostland.at", "title": "NX Shared Saves", "action": "add"},
         {"url": "https://nx.ghostland.at", "title": "Ghost eShop PUBLIC", "action": "add"},
         {"url": "http://switchbr.com/", "title": "SwitchBR", "action": "add"},
-        {"url": "https://cyrilz87.net", "title": "Egg Fried Rice Shop", "action": "add"}
+        {"url": "https://cyrilz87.net", "title": "Egg Fried Rice Shop", "action": "add"},
         {"url": "https://gandalfsax.com", "title": "Gandalf eShop", "action": "add"}
     ]
 }
