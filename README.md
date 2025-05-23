@@ -7,6 +7,15 @@ Path: tinfoil.json
 Title: Open NX
 ```
 
+If it doesn't work, try this way:
+
+```
+Protocol: https
+Host: raw.githubusercontent.com
+Path: opennx/opennx.github.io/main/tinfoil.json
+Title: Open NX
+```
+
 For full details of the shops click [here](https://github.com/melogabriel/tinfoil-shops).
 
 To check which tinfoil shops are working now, go to [this repository](https://github.com/melogabriel/tinfoil-shops-status).
