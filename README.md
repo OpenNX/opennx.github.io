@@ -4,7 +4,7 @@
 # ![Typing SVG](https://readme-typing-svg.demolab.com/?lines=Tinfoil%20Shops) <a href="https://www.buymeacoffee.com/gabrielmelo" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 
-### Hello! This is a GitHub page to list links to active and working tinfoil shops for Nintendo Switch.
+### Hello! This is a GitHub page to list links to active and working tinfoil shops for Nintendo Switch. Enjoy!
 
 If you find this tool useful, please consider starring our repository: [Star on Github](https://github.com/OpenNX/opennx.github.io) 
 
