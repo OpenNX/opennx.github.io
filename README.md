@@ -1,22 +1,30 @@
 [![Deploy GitHub Pages](https://github.com/OpenNX/opennx.github.io/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/OpenNX/opennx.github.io/actions/workflows/jekyll-gh-pages.yml)
 
 
-# ![Typing SVG](https://readme-typing-svg.demolab.com/?lines=Tinfoil%20Shops) <a href="https://www.buymeacoffee.com/gabrielmelo" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+### Tinfoil shop forwarder filled with the latest active and working tinfoil shops. 
 
-
-### Hello! This is a GitHub page to list links to active and working tinfoil shops for Nintendo Switch. Enjoy!
+Built with the [Tinfoil Documentation](https://blawar.github.io/tinfoil/custom_index/).
 
 If you find this tool useful, please consider starring our repository: [Star on Github](https://github.com/OpenNX/opennx.github.io) 
 
 To check which tinfoil shops are working now, go to [this repository](https://github.com/melogabriel/tinfoil-shops-status).
 
 If you have any shops to add, open an [issue](https://github.com/OpenNX/opennx.github.io/issues/new/choose) or make a [pull request](https://github.com/OpenNX/opennx.github.io/pulls).
+
+<a href="https://www.buymeacoffee.com/gabrielmelo" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+> [!NOTE]
+> **Open NX** acts solely as a forwarding service and is not responsible for the quality, safety, legality, or delivery of products from third-party shops.
                
 ___
 
 ## Shop Links
 
-To add shops to Tinfoil go to Tinfoil > File Browser > Press - New > Fill the fields with the information about the shop you want.
+To add shops to Tinfoil go to Tinfoil > File Browser > Press - New > Fill the fields with the information about the [shop](https://github.com/OpenNX/opennx.github.io/edit/main/README.md#open-nx). 
+
+![image](https://github.com/user-attachments/assets/91d3fddf-74a6-46fe-8a0b-b3de94e7646a)
+
+
 
 ## [Open NX](https://github.com/OpenNX/opennx.github.io)
 
@@ -29,35 +37,24 @@ Path: tinfoil.json
 Title: Open NX
 ```
 
-## oragne shop
+## Current Shops in Open NX:
 
-Add this location to Tinfoil's file browser to use oragne shop:
 
-```
-Protocol: https
-Host: tinfoil.oragne.dev
-Path: tinfoil.json
-Title: oragne shop
-```
-
-## Gandalf eShop
-
+### Gandalf eShop
 ```
 Protocol: https
 Host: gandalfsax.com
 Title: Gandalf eShop
 ```
 
-## SwitchBR
-
+### SwitchBR
 ```
 Protocol: http
 Host: switchbr.com
 Title: SwitchBR
 ```
 
-## World Digital
-
+### World Digital
 ```
 Protocol: https
 Host: free.worldigital-brasil.com
@@ -66,8 +63,7 @@ Path: /
 Title: world digital
 ```
 
-## NX Shared Saves
-
+### NX Shared Saves
 This shop contains modified save files that are installable on many games.
 ```
 Protocol: https
@@ -75,16 +71,14 @@ Host: nx-saves.ghostland.at
 Title: NX Shared Saves
 ```
 
-## Egg Fried Rize Shop
-
+### Egg Fried Rize Shop
 ```
 Protocol: https
 Host: cyrilz87.net
 Title: Egg Fried Rice Shop
 ```
 
-## Ultra NX
-
+### Ultra NX
 ```
 Protocol: https
 Host: tinfoil.ultranx.ru
@@ -92,22 +86,20 @@ Path:/tinfoil
 Title: Ultra NX
 ```
 
-## Ghost eShop
+### Ghost eShop
 ```
 Protocol: https
 Host: nx.ghostland.at
 Title: Ghost eShop PUBLIC
 ```
-## Ghost eShop RETRO
-
+### Ghost eShop RETRO
 ```
 Protocol: https
 Host: nx-retro.ghostland.at
 Title: Ghost eShop RETRO
 ```
 
-## Backup of Shops with various Functions
-
+### Backup of Shops with various Functions
 ```
 # JITS (works with your own GDrive if you follow https://games.jits.cc/account#instructions)
 Protocol: https
@@ -116,8 +108,7 @@ Path: shop
 Title: JITS
 ```
 
-## Ecchi's Firmware Archives (download all of switch firmware from Tinfoil)
-
+### Ecchi's Firmware Archives (download all of switch firmware from Tinfoil)
 ```
 Protocol: https
 Host: e.cchi.me
@@ -125,15 +116,14 @@ Path: firmware.tfl
 Title: EFA
 ```
 
-## Ecchi's Archives (download save files and install them to your Switch [auto added by Tinfoil] )
-
+### Ecchi's Archives (download save files and install them to your Switch [auto added by Tinfoil] )
 ```
 Protocol: https
 Host: e.cchi.me
 Title: ESA
 ```
 
-# Requirements
+## Requirements
 
 * Nintendo Switch running CFW ([Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases) with [Sigpatches](https://github.com/ITotalJustice/patches/releases) recommended).
 
@@ -177,4 +167,11 @@ ___
 > The author does not take any responsibility for your actions using this service.
 
 > The author is NOT affiliated with the content that you can retrieve thanks to any Tinfoil shop.
+
+
+## Also check out:
+
+> [orn8/tinfoil](https://github.com/orn8/tinfoil) and [carcaschoi/tinfoil-json](https://github.com/carcaschoi/tinfoil-json) - The inspiration for this project.
+
+> [Ghost eShop Wiki](https://wiki.ghosteshop.com/docs/category/nx--nintendo-switch) - Contains a lot of information, from how to operate Ghost eShop, to their very useful troubleshooting pages.
 
