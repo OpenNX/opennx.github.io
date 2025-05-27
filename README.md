@@ -13,7 +13,7 @@ If you have any shops to add, open an [issue](https://github.com/OpenNX/opennx.g
 
 <a href="https://www.buymeacoffee.com/gabrielmelo" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
-> [!NOTE]
+> *NOTE:*
 > **Open NX** acts solely as a forwarding service and is not responsible for the quality, safety, legality, or delivery of products from third-party shops.
                
 ___
