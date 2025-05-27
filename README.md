@@ -1,7 +1,7 @@
 [![Deploy GitHub Pages](https://github.com/OpenNX/opennx.github.io/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/OpenNX/opennx.github.io/actions/workflows/jekyll-gh-pages.yml)
 
 
-### Tinfoil shop forwarder filled with the latest active and working tinfoil shops. 
+### Tinfoil shop forwarder filled with .json file link to the latest active and working tinfoil shops. 
 
 Built with the [Tinfoil Documentation](https://blawar.github.io/tinfoil/custom_index/).
 
