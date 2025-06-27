@@ -41,6 +41,18 @@ Title: Open NX
 
 ## Current Shops in Open NX:
 
+### Ghost eShop
+```
+Protocol: https
+Host: nx.ghostland.at
+Title: Ghost eShop PUBLIC
+```
+### Ghost eShop RETRO
+```
+Protocol: https
+Host: nx-retro.ghostland.at
+Title: Ghost eShop RETRO
+```
 
 ### Gandalf eShop
 ```
@@ -88,18 +100,7 @@ Path:/tinfoil
 Title: Ultra NX
 ```
 
-### Ghost eShop
-```
-Protocol: https
-Host: nx.ghostland.at
-Title: Ghost eShop PUBLIC
-```
-### Ghost eShop RETRO
-```
-Protocol: https
-Host: nx-retro.ghostland.at
-Title: Ghost eShop RETRO
-```
+
 
 ### Backup of Shops with various Functions
 ```
