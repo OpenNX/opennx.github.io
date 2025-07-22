@@ -1,0 +1,37 @@
+name: Update Shop Status
+
+on:
+  schedule:
+    - cron: '0 */1 * * *'  # every 1 hour
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+          pip install pytz
+          pip install beautifulsoup4
+
+      - name: Run script
+        run: python check_url.py
+
+      - name: Commit and push changes
+        env:
+          TOKEN: ${{ secrets.PAT_WORKFLOW_TRIGGER }}
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
+          git add README.md
+          git diff --cached --quiet || git commit -m "🛠️ Update shop statuses"
+          git push
