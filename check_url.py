@@ -3,6 +3,10 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
+# Suppress warnings from insecure requests, as we will disable SSL verification.
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
 # --- CONFIGURATION ---
 
 # The source URL to fetch the master list of shops from.
@@ -29,7 +33,8 @@ def fetch_shop_list():
     """
     try:
         print(f"Fetching master shop list from {SOURCE_URL}...")
-        response = requests.get(SOURCE_URL, timeout=15)
+        # Added verify=False to bypass potential SSL verification issues
+        response = requests.get(SOURCE_URL, timeout=15, verify=False)
         response.raise_for_status()
         print("Successfully fetched master list.")
         return response.json()
@@ -44,16 +49,15 @@ def fetch_shop_list():
 
 def check_ghostland_status(status_url):
     """
-    Checks Ghostland status using a simple keyword search on the page content,
-    as requested.
+    Checks Ghostland status using a simple keyword search on the page content.
     """
     try:
-        headers = {'User-Agent': 'Python Status Checker/2.2'}
-        response = requests.get(status_url, timeout=10, headers=headers)
+        headers = {'User-Agent': 'Python Status Checker/2.3'}
+        # Added verify=False to bypass potential SSL verification issues
+        response = requests.get(status_url, timeout=10, headers=headers, verify=False)
         response.raise_for_status()
         content = response.text.lower()
 
-        # Check for keywords in the page content
         if "operational" in content:
             return f"{CHECK} Operational"
         if "partial outage" in content:
@@ -69,13 +73,13 @@ def check_ghostland_status(status_url):
 
 def check_generic_url(host):
     """
-    Performs a comprehensive check on a generic URL, trying HTTPS and HTTP,
-    and analyzing headers and content for status indicators.
+    Performs a comprehensive check on a generic URL, trying HTTPS and HTTP.
     """
     for scheme in ["https", "http"]:
         try:
             full_url = f"{scheme}://{host}"
-            response = requests.get(full_url, timeout=10, stream=True)
+            # Added verify=False to bypass potential SSL verification issues
+            response = requests.get(full_url, timeout=10, stream=True, verify=False)
             
             if response.status_code != 200:
                 continue
@@ -105,7 +109,9 @@ def check_generic_url(host):
 
             return f"{CHECK} OK"
 
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            # More detailed error logging
+            print(f"    - Error connecting to {full_url}: {e}")
             continue
 
     return f"{CROSS} DOWN (Connection failed)"
@@ -123,7 +129,6 @@ def main():
     status_parts = []
     print("\nChecking individual shop statuses...")
 
-    # Iterate through the locations from the fetched master list
     for shop in master_data.get("locations", []):
         host = shop.get("url")
         title = shop.get("title")
@@ -139,13 +144,10 @@ def main():
             status = check_generic_url(host)
         
         print(f"   - Status: {status}")
-        # Format for the 'success' message: "✓ Title"
         status_parts.append(f"{status.split(' ')[0]} {title}")
 
-    # Update the 'success' field in our master data object
     master_data["success"] = "Open NX Shops status list:\n" + "\n".join(status_parts)
 
-    # Save the updated data structure to the local file
     try:
         with open("tinfoil.json", "w", encoding="utf-8") as f:
             json.dump(master_data, f, ensure_ascii=False, indent=4)
