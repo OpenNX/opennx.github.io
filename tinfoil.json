@@ -36,5 +36,5 @@
       "action": "add"
     }
   ],
-  "success": "Shop status list:\n✗ Ghost eShop Retro NX (https://nx-retro.ghostland.at)\n✗ NX Shared Saves (https://nx-saves.ghostland.at)\n✗ Ghost eShop PUBLIC (https://nx.ghostland.at)\n✗ SwitchBR (http://switchbr.com)\n✓ Egg Fried Rice Shop (https://cyrilz87.net)\n✗ Gandalf eShop (https://gandalfsax.com)\n✓ world digital (https://free.worldigital-brasil.com)"
+  "success": "Open NX Shops status list:\n✕ Ghost eShop Retro NX (https://nx-retro.ghostland.at)\n✕ NX Shared Saves (https://nx-saves.ghostland.at)\n✕ Ghost eShop PUBLIC (https://nx.ghostland.at)\n✕ SwitchBR (http://switchbr.com)\n✓ Egg Fried Rice Shop (https://cyrilz87.net)\n✕ Gandalf eShop (https://gandalfsax.com)\n✓ world digital (https://free.worldigital-brasil.com)"
 }
