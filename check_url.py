@@ -3,102 +3,155 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-# Unicode status symbols
-CHECK = "\u2713"  # ✓
-CROSS = "\u2715"  # ✕ (Reverted to the original unicode character as requested)
+# --- CONFIGURATION ---
 
-# Ghostland fallback mapping (no changes here)
-ghostland_status_pages = {
-    "https://nx.ghostland.at": "https://status.ghostland.at/797146088",
-    "https://nx-retro.ghostland.at": "https://status.ghostland.at/799726659",
-    "https://nx-saves.ghostland.at": "https://status.ghostland.at/797836101"
+# The source URL to fetch the master list of shops from.
+SOURCE_URL = "https://opennx.github.io/tinfoil.json"
+
+# Unicode status symbols
+CHECK = "\u2713"   # ✓
+WARNING = "\u26A0" # ⚠️
+CROSS = "\u2715"   # ✕
+
+# Ghostland shops mapping to their specific Uptime Kuma status pages
+GHOSTLAND_SHOPS = {
+    "nx.ghostland.at": "https://status.ghostland.at/797146088",
+    "nx-retro.ghostland.at": "https://status.ghostland.at/799726659",
+    "nx-saves.ghostland.at": "https://status.ghostland.at/797836101"
 }
 
-# --- REVISED FUNCTION ---
-# Function to check via Ghostland status page by parsing embedded JSON
-def check_ghostland_status_page(status_url):
+# --- DATA FETCHING ---
+
+def fetch_shop_list():
     """
-    Checks the status from a Uptime Kuma-powered status page.
-    This definitive version finds the <script> tag containing the monitor data,
-    extracts the JSON object using regex, and reads the status directly.
-    This is more reliable as it doesn't depend on CSS or JavaScript rendering.
+    Fetches the master list of shops from the source JSON URL.
+    Returns the entire data structure.
     """
     try:
-        headers = {'User-Agent': 'Python Status Checker/1.3'}
-        res = requests.get(status_url, timeout=15, headers=headers)
-        res.raise_for_status()
+        print(f"Fetching master shop list from {SOURCE_URL}...")
+        response = requests.get(SOURCE_URL, timeout=15)
+        response.raise_for_status()
+        print("Successfully fetched master list.")
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"FATAL: Could not fetch master shop list: {e}")
+        return None
+    except json.JSONDecodeError:
+        print("FATAL: Failed to parse master shop list as JSON.")
+        return None
 
-        # The page data is stored in a <script> tag as a JavaScript object.
-        # We use a regular expression to find and extract this entire object.
-        match = re.search(r"window\.kuma\s*=\s*({.*?});", res.text)
-        
-        if match:
-            # Extract the JSON data string from the regex match
-            json_data_str = match.group(1)
-            # Parse the extracted string into a Python dictionary
-            status_data = json.loads(json_data_str)
+# --- STATUS CHECKING FUNCTIONS ---
+
+def check_ghostland_status(status_url):
+    """
+    Checks Ghostland status using a simple keyword search on the page content,
+    as requested.
+    """
+    try:
+        headers = {'User-Agent': 'Python Status Checker/2.2'}
+        response = requests.get(status_url, timeout=10, headers=headers)
+        response.raise_for_status()
+        content = response.text.lower()
+
+        # Check for keywords in the page content
+        if "operational" in content:
+            return f"{CHECK} Operational"
+        if "partial outage" in content:
+            return f"{WARNING} Partial outage"
+        if "major outage" in content or "down" in content:
+            return f"{CROSS} Major outage"
+
+        return f"{WARNING} Unknown status"
+
+    except requests.exceptions.RequestException as e:
+        print(f"[Ghostland check error] {status_url}: {e}")
+        return f"{CROSS} DOWN (Check failed)"
+
+def check_generic_url(host):
+    """
+    Performs a comprehensive check on a generic URL, trying HTTPS and HTTP,
+    and analyzing headers and content for status indicators.
+    """
+    for scheme in ["https", "http"]:
+        try:
+            full_url = f"{scheme}://{host}"
+            response = requests.get(full_url, timeout=10, stream=True)
             
-            # The status for the first monitor on the page is in monitorList[0].
-            # In Uptime Kuma, the status value for "Up" is the integer 1.
-            monitor_status = status_data.get("monitorList", [{}])[0].get("status")
-            return monitor_status == 1
+            if response.status_code != 200:
+                continue
 
-        # If we get here, the expected script data was not found on the page.
-        print(f"[Ghostland Fallback Warning] Could not find monitor data for {status_url}")
-        return False
+            content_type = response.headers.get('Content-Type', '').lower()
+            if 'text/html' not in content_type:
+                return f"{CROSS} Invalid content (not HTML)"
 
-    except Exception as e:
-        print(f"[Ghostland fallback error] {status_url}: {e}")
-        return False
+            content = response.raw.read(200000, decode_content=True).decode('utf-8', 'ignore').lower()
+            
+            soup = BeautifulSoup(content, "html.parser")
+            title_text = soup.title.string.strip().lower() if soup.title else ""
+            
+            if "maintenance" in title_text:
+                return f"{WARNING} Under maintenance"
 
-# Function to check direct HTTP access (no changes here)
-def check_url_directly(url):
-    """Checks if a URL is directly accessible with a 200 OK status."""
+            broken_indicators = ["default web page", "site not found", "502 bad gateway", "error 403"]
+            if any(bad in content for bad in broken_indicators):
+                return f"{CROSS} Error/Placeholder"
+
+            working_indicators = [".nsp", ".xci", "tinfoil", ".nsz", "eshop", "shop", "switch"]
+            if any(good in content for good in working_indicators):
+                return f"{CHECK} OK"
+
+            if len(content.strip()) < 300:
+                return f"{WARNING} Possibly blank"
+
+            return f"{CHECK} OK"
+
+        except requests.exceptions.RequestException:
+            continue
+
+    return f"{CROSS} DOWN (Connection failed)"
+
+# --- MAIN SCRIPT LOGIC ---
+def main():
+    """
+    Main function to fetch the remote shop list, check each one,
+    and update the local tinfoil.json file.
+    """
+    master_data = fetch_shop_list()
+    if not master_data:
+        return
+
+    status_parts = []
+    print("\nChecking individual shop statuses...")
+
+    # Iterate through the locations from the fetched master list
+    for shop in master_data.get("locations", []):
+        host = shop.get("url")
+        title = shop.get("title")
+
+        if not host or not title:
+            continue
+
+        print(f"-> Checking '{title}' ({host})...")
+        
+        if host in GHOSTLAND_SHOPS:
+            status = check_ghostland_status(GHOSTLAND_SHOPS[host])
+        else:
+            status = check_generic_url(host)
+        
+        print(f"   - Status: {status}")
+        # Format for the 'success' message: "✓ Title"
+        status_parts.append(f"{status.split(' ')[0]} {title}")
+
+    # Update the 'success' field in our master data object
+    master_data["success"] = "Open NX Shops status list:\n" + "\n".join(status_parts)
+
+    # Save the updated data structure to the local file
     try:
-        # Added a user agent here as well for consistency
-        headers = {'User-Agent': 'Python Status Checker/1.3'}
-        response = requests.get(url, timeout=10, headers=headers)
-        return response.status_code == 200
-    except Exception as e:
-        print(f"[Direct check error] {url}: {e}")
-        return False
+        with open("tinfoil.json", "w", encoding="utf-8") as f:
+            json.dump(master_data, f, ensure_ascii=False, indent=4)
+        print("\nSuccessfully updated local tinfoil.json with the latest shop list and statuses.")
+    except IOError as e:
+        print(f"\nError: Could not write to tinfoil.json: {e}")
 
-# --- MAIN SCRIPT LOGIC (no changes from here) ---
-# Load JSON
-try:
-    with open("tinfoil.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-except FileNotFoundError:
-    print("Error: tinfoil.json not found. Please ensure the file is in the same directory.")
-    exit()
-
-# Build compact success message
-status_parts = []
-
-print("Checking shop statuses...")
-for shop in data.get("locations", []):
-    url = shop.get("url")
-    title = shop.get("title")
-
-    if not url or not title:
-        continue # Skip entries that are missing a URL or title
-
-    is_online = False # Default to offline
-    if url in ghostland_status_pages:
-        print(f"-> Checking {title} via status page...")
-        is_online = check_ghostland_status_page(ghostland_status_pages[url])
-    else:
-        print(f"-> Checking {title} directly...")
-        is_online = check_url_directly(url)
-
-    symbol = CHECK if is_online else CROSS
-    status_parts.append(f"{symbol} {title}")
-
-# Set the compact success message
-data["success"] = "Open NX Shops status list:\n" + "\n".join(status_parts)
-
-# Save the result
-with open("tinfoil.json", "w", encoding="utf-8") as f:
-    json.dump(data, f, ensure_ascii=False, indent=4)
-
-print("\nSuccessfully updated tinfoil.json with the latest shop statuses.")
+if __name__ == "__main__":
+    main()
