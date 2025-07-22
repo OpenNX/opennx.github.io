@@ -27,7 +27,7 @@ jobs:
 
       - name: Commit and push if changed
         env:
-          TOKEN: ${{ secrets.PAT_WORKFLOW_TRIGGER }}
+          TOKEN: ${{ secrets.PAT_OPENNX_SHOP_STATUS }}
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
