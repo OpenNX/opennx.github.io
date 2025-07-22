@@ -1,4 +1,5 @@
 import json
+import re
 import requests
 from bs4 import BeautifulSoup
 
@@ -14,27 +15,36 @@ ghostland_status_pages = {
 }
 
 # --- REVISED FUNCTION ---
-# Function to check via Ghostland status page by looking for the specific CSS class
+# Function to check via Ghostland status page by parsing embedded JSON
 def check_ghostland_status_page(status_url):
     """
     Checks the status from a Uptime Kuma-powered status page.
-    This version checks for the presence of the 'uk-text-primary' CSS class,
-    which is associated with the "Up" status text, as requested.
+    This definitive version finds the <script> tag containing the monitor data,
+    extracts the JSON object using regex, and reads the status directly.
+    This is more reliable as it doesn't depend on CSS or JavaScript rendering.
     """
     try:
-        headers = {'User-Agent': 'Python Status Checker/1.2'}
+        headers = {'User-Agent': 'Python Status Checker/1.3'}
         res = requests.get(status_url, timeout=15, headers=headers)
         res.raise_for_status()
-        soup = BeautifulSoup(res.text, "html.parser")
 
-        # Find the element with the class 'uk-text-primary'.
-        # This class is used when the service is operational ("Up").
-        status_element = soup.select_one(".uk-text-primary")
-
-        # If the element exists and its text is "Up", the service is online.
-        if status_element and "Up" in status_element.text:
-            return True
+        # The page data is stored in a <script> tag as a JavaScript object.
+        # We use a regular expression to find and extract this entire object.
+        match = re.search(r"window\.kuma\s*=\s*({.*?});", res.text)
         
+        if match:
+            # Extract the JSON data string from the regex match
+            json_data_str = match.group(1)
+            # Parse the extracted string into a Python dictionary
+            status_data = json.loads(json_data_str)
+            
+            # The status for the first monitor on the page is in monitorList[0].
+            # In Uptime Kuma, the status value for "Up" is the integer 1.
+            monitor_status = status_data.get("monitorList", [{}])[0].get("status")
+            return monitor_status == 1
+
+        # If we get here, the expected script data was not found on the page.
+        print(f"[Ghostland Fallback Warning] Could not find monitor data for {status_url}")
         return False
 
     except Exception as e:
@@ -46,7 +56,7 @@ def check_url_directly(url):
     """Checks if a URL is directly accessible with a 200 OK status."""
     try:
         # Added a user agent here as well for consistency
-        headers = {'User-Agent': 'Python Status Checker/1.2'}
+        headers = {'User-Agent': 'Python Status Checker/1.3'}
         response = requests.get(url, timeout=10, headers=headers)
         return response.status_code == 200
     except Exception as e:
