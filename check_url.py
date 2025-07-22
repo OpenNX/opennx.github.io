@@ -52,7 +52,7 @@ def check_ghostland_status(status_url):
     Checks Ghostland status using a simple keyword search on the page content.
     """
     try:
-        headers = {'User-Agent': 'Python Status Checker/2.3'}
+        headers = {'User-Agent': 'Python Status Checker/2.4'}
         # Added verify=False to bypass potential SSL verification issues
         response = requests.get(status_url, timeout=10, headers=headers, verify=False)
         response.raise_for_status()
@@ -71,50 +71,47 @@ def check_ghostland_status(status_url):
         print(f"[Ghostland check error] {status_url}: {e}")
         return f"{CROSS} DOWN (Check failed)"
 
-def check_generic_url(host):
+def check_generic_url(url):
     """
-    Performs a comprehensive check on a generic URL, trying HTTPS and HTTP.
+    Performs a comprehensive check on a generic URL.
+    This function now expects a full URL including the scheme.
     """
-    for scheme in ["https", "http"]:
-        try:
-            full_url = f"{scheme}://{host}"
-            # Added verify=False to bypass potential SSL verification issues
-            response = requests.get(full_url, timeout=10, stream=True, verify=False)
-            
-            if response.status_code != 200:
-                continue
+    try:
+        # Added verify=False to bypass potential SSL verification issues
+        response = requests.get(url, timeout=10, stream=True, verify=False)
+        
+        if response.status_code != 200:
+            return f"{CROSS} DOWN ({response.status_code})"
 
-            content_type = response.headers.get('Content-Type', '').lower()
-            if 'text/html' not in content_type:
-                return f"{CROSS} Invalid content (not HTML)"
+        content_type = response.headers.get('Content-Type', '').lower()
+        if 'text/html' not in content_type:
+            return f"{CROSS} Invalid content (not HTML)"
 
-            content = response.raw.read(200000, decode_content=True).decode('utf-8', 'ignore').lower()
-            
-            soup = BeautifulSoup(content, "html.parser")
-            title_text = soup.title.string.strip().lower() if soup.title else ""
-            
-            if "maintenance" in title_text:
-                return f"{WARNING} Under maintenance"
+        content = response.raw.read(200000, decode_content=True).decode('utf-8', 'ignore').lower()
+        
+        soup = BeautifulSoup(content, "html.parser")
+        title_text = soup.title.string.strip().lower() if soup.title else ""
+        
+        if "maintenance" in title_text:
+            return f"{WARNING} Under maintenance"
 
-            broken_indicators = ["default web page", "site not found", "502 bad gateway", "error 403"]
-            if any(bad in content for bad in broken_indicators):
-                return f"{CROSS} Error/Placeholder"
+        broken_indicators = ["default web page", "site not found", "502 bad gateway", "error 403"]
+        if any(bad in content for bad in broken_indicators):
+            return f"{CROSS} Error/Placeholder"
 
-            working_indicators = [".nsp", ".xci", "tinfoil", ".nsz", "eshop", "shop", "switch"]
-            if any(good in content for good in working_indicators):
-                return f"{CHECK} OK"
-
-            if len(content.strip()) < 300:
-                return f"{WARNING} Possibly blank"
-
+        working_indicators = [".nsp", ".xci", "tinfoil", ".nsz", "eshop", "shop", "switch"]
+        if any(good in content for good in working_indicators):
             return f"{CHECK} OK"
 
-        except requests.exceptions.RequestException as e:
-            # More detailed error logging
-            print(f"    - Error connecting to {full_url}: {e}")
-            continue
+        if len(content.strip()) < 300:
+            return f"{WARNING} Possibly blank"
 
-    return f"{CROSS} DOWN (Connection failed)"
+        return f"{CHECK} OK"
+
+    except requests.exceptions.RequestException as e:
+        # More detailed error logging
+        print(f"    - Error connecting to {url}: {e}")
+        return f"{CROSS} DOWN (Connection failed)"
 
 # --- MAIN SCRIPT LOGIC ---
 def main():
@@ -130,18 +127,26 @@ def main():
     print("\nChecking individual shop statuses...")
 
     for shop in master_data.get("locations", []):
-        host = shop.get("url")
+        full_url = shop.get("url")
         title = shop.get("title")
 
-        if not host or not title:
+        if not full_url or not title:
             continue
 
-        print(f"-> Checking '{title}' ({host})...")
+        print(f"-> Checking '{title}' ({full_url})...")
         
-        if host in GHOSTLAND_SHOPS:
-            status = check_ghostland_status(GHOSTLAND_SHOPS[host])
+        # --- LOGIC CORRECTED HERE ---
+        # Check if the URL's hostname is in our Ghostland map
+        matched_ghost_host = None
+        for host in GHOSTLAND_SHOPS:
+            if host in full_url:
+                matched_ghost_host = host
+                break
+
+        if matched_ghost_host:
+            status = check_ghostland_status(GHOSTLAND_SHOPS[matched_ghost_host])
         else:
-            status = check_generic_url(host)
+            status = check_generic_url(full_url)
         
         print(f"   - Status: {status}")
         status_parts.append(f"{status.split(' ')[0]} {title}")
