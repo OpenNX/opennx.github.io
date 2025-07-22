@@ -2,13 +2,13 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-# Load the tinfoil.json file
+# Load tinfoil.json
 with open("tinfoil.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 status_lines = []
 
-# Map Ghostland shops to their status page URLs
+# Ghostland status pages mapping
 ghostland_status_pages = {
     "https://nx.ghostland.at": "https://status.ghostland.at/797146088",
     "https://nx-retro.ghostland.at": "https://status.ghostland.at/799726659",
@@ -17,44 +17,37 @@ ghostland_status_pages = {
 
 def check_ghostland_status_page(status_url):
     try:
-        response = requests.get(status_url, timeout=10)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.text, "html.parser")
-        container = soup.select_one(".component-status")
-        if container and "Operational" in container.get_text():
-            return True
+        res = requests.get(status_url, timeout=10)
+        res.raise_for_status()
+        soup = BeautifulSoup(res.text, "html.parser")
+        component = soup.select_one(".component-status")
+        return component and "Operational" in component.text
     except Exception:
-        pass
-    return False
+        return False
 
-def check_shop(url):
+def check_url_directly(url):
     try:
-        response = requests.get(url, timeout=10)
-        if response.status_code == 200 and "maintenance" not in response.text.lower():
-            return True
+        res = requests.get(url, timeout=10)
+        return res.status_code == 200 and "maintenance" not in res.text.lower()
     except Exception:
-        pass
-    return False
+        return False
 
+# Check each shop
 for shop in data.get("locations", []):
     url = shop["url"]
     title = shop["title"]
 
-    is_up = False
-
     if url in ghostland_status_pages:
-        # Fallback: use the Ghostland status page
         is_up = check_ghostland_status_page(ghostland_status_pages[url])
     else:
-        # Standard method
-        is_up = check_shop(url)
+        is_up = check_url_directly(url)
 
-    symbol = "✅" if is_up else "❌"
+    symbol = "\u2713" if is_up else "\u2717"  # ✓ or ✗
     status_lines.append(f"{symbol} {title} ({url})")
 
-# Add the summary to the success field
+# Update success field
 data["success"] = "Shop status list:\n" + "\n".join(status_lines)
 
-# Write updated content back to tinfoil.json
+# Save the result
 with open("tinfoil.json", "w", encoding="utf-8") as f:
     json.dump(data, f, ensure_ascii=False, indent=2)
