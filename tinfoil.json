@@ -1,12 +1,40 @@
 {
-    "locations": [
-        {"url": "https://nx-retro.ghostland.at", "title": "Ghost eShop Retro NX", "action": "add"},
-        {"url": "https://nx-saves.ghostland.at", "title": "NX Shared Saves", "action": "add"},
-        {"url": "https://nx.ghostland.at", "title": "Ghost eShop PUBLIC", "action": "add"},
-        {"url": "http://switchbr.com", "title": "SwitchBR", "action": "add"},
-        {"url": "https://cyrilz87.net", "title": "Egg Fried Rice Shop", "action": "add"},
-        {"url": "https://gandalfsax.com", "title": "Gandalf eShop", "action": "add"},
-        {"url": "https://free.worldigital-brasil.com", "title": "world digital", "action": "add"}
-    ],
-       "success": "Open NX shop acts solely as a forwarding service and is not responsible for the quality, safety, legality, or delivery of products from third-party shops.\n\nStar our repository: https://github.com/OpenNX/opennx.github.io.\n\nTo check which tinfoil shops are working now, search tinfoil shops status on Google or your favorite search engine and click on the first link.\n\n"
+  "locations": [
+    {
+      "url": "https://nx-retro.ghostland.at",
+      "title": "Ghost eShop Retro NX",
+      "action": "add"
+    },
+    {
+      "url": "https://nx-saves.ghostland.at",
+      "title": "NX Shared Saves",
+      "action": "add"
+    },
+    {
+      "url": "https://nx.ghostland.at",
+      "title": "Ghost eShop PUBLIC",
+      "action": "add"
+    },
+    {
+      "url": "http://switchbr.com",
+      "title": "SwitchBR",
+      "action": "add"
+    },
+    {
+      "url": "https://cyrilz87.net",
+      "title": "Egg Fried Rice Shop",
+      "action": "add"
+    },
+    {
+      "url": "https://gandalfsax.com",
+      "title": "Gandalf eShop",
+      "action": "add"
+    },
+    {
+      "url": "https://free.worldigital-brasil.com",
+      "title": "world digital",
+      "action": "add"
+    }
+  ],
+  "success": ""
 }
