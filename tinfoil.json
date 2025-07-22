@@ -36,5 +36,5 @@
             "action": "add"
         }
     ],
-    "success": "Open NX Shops status list:\n✕ Ghost eShop Retro NX\n✕ NX Shared Saves\n✕ Ghost eShop PUBLIC\n✕ SwitchBR\n✕ Egg Fried Rice Shop\n✕ Gandalf eShop\n✕ world digital"
+    "success": "Open NX Shops status list:\n✓ Ghost eShop Retro NX\n✓ NX Shared Saves\n✓ Ghost eShop PUBLIC\n✕ SwitchBR\n✕ Egg Fried Rice Shop\n✕ Gandalf eShop\n✓ world digital"
 }
