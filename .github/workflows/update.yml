@@ -2,14 +2,16 @@ name: Update Shop Status
 
 on:
   schedule:
-    - cron: '0 */1 * * *'  # every 1 hour
+    - cron: '0 */1 * * *'  # Every hour
   workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -18,20 +20,23 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install requests
-          pip install pytz
-          pip install beautifulsoup4
+          pip install requests beautifulsoup4
 
-      - name: Run script
+      - name: Run shop checker
         run: python check_url.py
 
-      - name: Commit and push changes
+      - name: Commit and push if changed
         env:
           TOKEN: ${{ secrets.PAT_WORKFLOW_TRIGGER }}
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
           git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
-          git add README.md
-          git diff --cached --quiet || git commit -m "🛠️ Update shop statuses"
-          git push
+          
+          git add tinfoil.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "🔁 Update tinfoil shop status"
+            git push
+          fi
