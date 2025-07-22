@@ -56,7 +56,7 @@ for shop in data.get("locations", []):
 # Set the compact success message
 data["success"] = " | ".join(status_parts)
 # Update success field
-data["success"] = "Open NX Shops status list:\n" + "\n".join(status_lines)
+data["success"] = "Open NX Shops status list:\n" + "\n".join(status_parts)
 
 # Save the result
 with open("tinfoil.json", "w", encoding="utf-8") as f:
