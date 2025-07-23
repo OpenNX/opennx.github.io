@@ -149,7 +149,7 @@ def main():
             status = check_generic_url(full_url)
         
         print(f"   - Status: {status}")
-        status_parts.append(f"{title}': '{status}")
+        status_parts.append(f"{title}': '")
 
     master_data["success"] = "Open NX Shops status list:\n" + "\n".join(status_parts)
 
