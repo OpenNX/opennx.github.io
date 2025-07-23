@@ -12,7 +12,7 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 # The source URL to fetch the master list of shops from.
 SOURCE_URL = "https://opennx.github.io/tinfoil.json"
 
-# Unicode status symbols
+# Unicode or status description
 CHECK = "Operational"   # ✓
 WARNING = "Partial Outage" # ⚠️
 CROSS = "Down"   # ✕
@@ -59,11 +59,11 @@ def check_ghostland_status(status_url):
         content = response.text.lower()
 
         if "operational" in content:
-            return f"{CHECK} Operational"
+            return f"{CHECK}"
         if "partial outage" in content:
-            return f"{WARNING} Partial outage"
+            return f"{WARNING}"
         if "major outage" in content or "down" in content:
-            return f"{CROSS} Major outage"
+            return f"{CROSS}"
 
         return f"{WARNING} Unknown status"
 
@@ -149,7 +149,7 @@ def main():
             status = check_generic_url(full_url)
         
         print(f"   - Status: {status}")
-        status_parts.append(f"{title}': '")
+        status_parts.append(f"{title}': ' {status}")
 
     master_data["success"] = "Open NX Shops status list:\n" + "\n".join(status_parts)
 
