@@ -81,11 +81,11 @@ def check_generic_url(url):
         response = requests.get(url, timeout=10, stream=True, verify=False)
         
         if response.status_code != 200:
-            return f"{CROSS} DOWN ({response.status_code})"
+            return f"DOWN ({response.status_code})"
 
         content_type = response.headers.get('Content-Type', '').lower()
         if 'text/html' not in content_type:
-            return f"{CROSS} Invalid content (not HTML)"
+            return f"Invalid content (not HTML)"
 
         content = response.raw.read(200000, decode_content=True).decode('utf-8', 'ignore').lower()
         
@@ -93,25 +93,25 @@ def check_generic_url(url):
         title_text = soup.title.string.strip().lower() if soup.title else ""
         
         if "maintenance" in title_text:
-            return f"{WARNING} Under maintenance"
+            return f"Under maintenance"
 
         broken_indicators = ["default web page", "site not found", "502 bad gateway", "error 403"]
         if any(bad in content for bad in broken_indicators):
-            return f"{CROSS} Error/Placeholder"
+            return f"Error/Placeholder"
 
         working_indicators = [".nsp", ".xci", "tinfoil", ".nsz", "eshop", "shop", "switch"]
         if any(good in content for good in working_indicators):
-            return f"{CHECK} OK"
+            return f"{CHECK}"
 
         if len(content.strip()) < 300:
-            return f"{WARNING} Possibly blank"
+            return f"Possibly blank"
 
-        return f"{CHECK} OK"
+        return f"{CHECK}"
 
     except requests.exceptions.RequestException as e:
         # More detailed error logging
         print(f"    - Error connecting to {url}: {e}")
-        return f"{CROSS} DOWN (Connection failed)"
+        return f"DOWN (Connection failed)"
 
 # --- MAIN SCRIPT LOGIC ---
 def main():
