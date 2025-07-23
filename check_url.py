@@ -13,9 +13,9 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 SOURCE_URL = "https://opennx.github.io/tinfoil.json"
 
 # Unicode status symbols
-CHECK = "\u2713"   # ✓
-WARNING = "\u26A0" # ⚠️
-CROSS = "\u2715"   # ✕
+CHECK = "Operational"   # ✓
+WARNING = "Partial Outage" # ⚠️
+CROSS = "Down"   # ✕
 
 # Ghostland shops mapping to their specific Uptime Kuma status pages
 GHOSTLAND_SHOPS = {
