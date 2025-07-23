@@ -36,5 +36,5 @@
             "action": "add"
         }
     ],
-    "success": "Open NX Shops status list:\nGhost eShop Retro NX': 'Operational Operational\nNX Shared Saves': 'Operational Operational\nGhost eShop PUBLIC': 'Operational Operational\nSwitchBR': 'Down DOWN (521)\nEgg Fried Rice Shop': 'Down Invalid content (not HTML)\nGandalf eShop': 'Down DOWN (403)\nworld digital': 'Operational OK"
+    "success": "Open NX Shops status list:\nGhost eShop Retro NX': '\nNX Shared Saves': '\nGhost eShop PUBLIC': '\nSwitchBR': '\nEgg Fried Rice Shop': '\nGandalf eShop': '\nworld digital': '"
 }
