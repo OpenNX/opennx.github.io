@@ -151,7 +151,7 @@ def main():
         print(f"   - Status: {status}")
         status_parts.append(f"{title}:  {status}")
 
-    master_data["success"] = "Open NX Shops status list:\n" + "\n".join(status_parts)
+    master_data["success"] = "Open NX Shops status list:\n\n" + "\n".join(status_parts)
 
     try:
         with open("tinfoil.json", "w", encoding="utf-8") as f:
