@@ -69,7 +69,7 @@ def check_ghostland_status(status_url):
 
     except requests.exceptions.RequestException as e:
         print(f"[Ghostland check error] {status_url}: {e}")
-        return f"{CROSS} DOWN (Check failed)"
+        return f"{CROSS} (Check failed)"
 
 def check_generic_url(url):
     """
