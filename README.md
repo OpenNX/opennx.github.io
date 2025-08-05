@@ -47,18 +47,12 @@ Protocol: https
 Host: nx.ghostland.at
 Title: Ghost eShop PUBLIC
 ```
+
 ### Ghost eShop RETRO
 ```
 Protocol: https
 Host: nx-retro.ghostland.at
 Title: Ghost eShop RETRO
-```
-
-### Gandalf eShop
-```
-Protocol: https
-Host: gandalfsax.com
-Title: Gandalf eShop
 ```
 
 ### SwitchBR
