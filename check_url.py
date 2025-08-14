@@ -134,8 +134,7 @@ def main():
             continue
 
         print(f"-> Checking '{title}' ({full_url})...")
-        
-        # --- LOGIC CORRECTED HERE ---
+    
         # Check if the URL's hostname is in our Ghostland map
         matched_ghost_host = None
         for host in GHOSTLAND_SHOPS:
