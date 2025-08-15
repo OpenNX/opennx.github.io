@@ -120,6 +120,13 @@ Host: e.cchi.me
 Title: ESA
 ```
 
+### Gandalf eShop
+```
+Protocol: https
+Host: gandalfsax.com
+Title: Gandalf eShop
+```
+
 ## SWITCH2XCI Reddit and Discord Channel to download Games and Updates (Not a Tinfoil Shop)
 
 [Reddit](https://www.reddit.com/r/SWITCH2XCI/)
