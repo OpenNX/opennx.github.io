@@ -36,5 +36,5 @@
             "action": "add"
         }
     ],
-    "success": "Open NX Shops status list:\n\n[Open NX] Ghost eShop Retro NX:  Operational\n[Open NX] NX Shared Saves:  Operational\n[Open NX] Ghost eShop PUBLIC:  Operational\n[Open NX] SwitchBR:  Operational\n[Open NX] Egg Fried Rice Shop:  Invalid content (not HTML)\n[Open NX] world digital:  Operational\n[Open NX] Gandalf eShop:  DOWN (403)\n\nStar on GitHub:\nhttps://github.com/OpenNX/opennx.github.io"
+    "success": "Open NX Shops status list:\n\n[Open NX] Ghost eShop Retro NX:  Operational\n[Open NX] NX Shared Saves:  Operational\n[Open NX] Ghost eShop PUBLIC:  Operational\n[Open NX] SwitchBR:  Operational\n[Open NX] Egg Fried Rice Shop:  DOWN (Connection failed)\n[Open NX] world digital:  Operational\n[Open NX] Gandalf eShop:  DOWN (403)\n\nStar on GitHub:\nhttps://github.com/OpenNX/opennx.github.io"
 }
