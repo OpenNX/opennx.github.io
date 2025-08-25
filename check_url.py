@@ -1,5 +1,4 @@
 import json
-import re
 import requests
 from bs4 import BeautifulSoup
 
@@ -12,16 +11,11 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 # The source URL to fetch the master list of shops from.
 SOURCE_URL = "https://opennx.github.io/tinfoil.json"
 
-# Unicode or status description
-CHECK = "Operational"   # ✓
-WARNING = "Partial Outage" # ⚠️
-CROSS = "Down"   # ✕
-
-# Ghostland shops mapping to their specific Uptime Kuma status pages
+# Ghostland shops mapping to their "/up" check URLs
 GHOSTLAND_SHOPS = {
-    "nx.ghostland.at": "https://status.ghostland.at/797146088",
-    "nx-retro.ghostland.at": "https://status.ghostland.at/799726659",
-    "nx-saves.ghostland.at": "https://status.ghostland.at/797836101"
+    "nx.ghostland.at": "https://nx.ghostland.at/up",
+    "nx-retro.ghostland.at": "https://nx.ghostland.at/up",
+    "nx-saves.ghostland.at": "https://nx.ghostland.at/up"
 }
 
 # --- DATA FETCHING ---
@@ -33,7 +27,6 @@ def fetch_shop_list():
     """
     try:
         print(f"Fetching master shop list from {SOURCE_URL}...")
-        # Added verify=False to bypass potential SSL verification issues
         response = requests.get(SOURCE_URL, timeout=15, verify=False)
         response.raise_for_status()
         print("Successfully fetched master list.")
@@ -49,27 +42,22 @@ def fetch_shop_list():
 
 def check_ghostland_status(status_url):
     """
-    Checks Ghostland status using a simple keyword search on the page content.
+    Ghostland shops return plain 'ok' on their /up endpoint when operational.
     """
     try:
         headers = {'User-Agent': 'Python Status Checker/2.4'}
-        # Added verify=False to bypass potential SSL verification issues
         response = requests.get(status_url, timeout=10, headers=headers, verify=False)
         response.raise_for_status()
-        content = response.text.lower()
 
-        if "operational" in content:
-            return f"{CHECK}"
-        if "partial outage" in content:
-            return f"{WARNING}"
-        if "major outage" in content or "down" in content:
-            return f"{CROSS}"
-
-        return f"{WARNING} Unknown status"
+        content = response.text.strip().lower()
+        if content == "ok":
+            return f"Online"
+        else:
+            return f"Offline (resp: {content})"
 
     except requests.exceptions.RequestException as e:
         print(f"[Ghostland check error] {status_url}: {e}")
-        return f"{CROSS} (Check failed)"
+        return f"(Check failed)"
 
 def check_generic_url(url):
     """
@@ -77,15 +65,14 @@ def check_generic_url(url):
     This function now expects a full URL including the scheme.
     """
     try:
-        # Added verify=False to bypass potential SSL verification issues
         response = requests.get(url, timeout=10, stream=True, verify=False)
         
         if response.status_code != 200:
-            return f"DOWN ({response.status_code})"
+            return f"Offline ({response.status_code})"
 
         content_type = response.headers.get('Content-Type', '').lower()
         if 'text/html' not in content_type:
-            return f"Invalid content (not HTML)"
+            return f"Invalid content"
 
         content = response.raw.read(200000, decode_content=True).decode('utf-8', 'ignore').lower()
         
@@ -101,17 +88,16 @@ def check_generic_url(url):
 
         working_indicators = [".nsp", ".xci", "tinfoil", ".nsz", "eshop", "shop", "switch"]
         if any(good in content for good in working_indicators):
-            return f"{CHECK}"
+            return f"Online"
 
         if len(content.strip()) < 300:
             return f"Possibly blank"
 
-        return f"{CHECK}"
+        return f"Online"
 
     except requests.exceptions.RequestException as e:
-        # More detailed error logging
         print(f"    - Error connecting to {url}: {e}")
-        return f"DOWN (Connection failed)"
+        return f"Connection failed"
 
 # --- MAIN SCRIPT LOGIC ---
 def main():
@@ -135,7 +121,6 @@ def main():
 
         print(f"-> Checking '{title}' ({full_url})...")
     
-        # Check if the URL's hostname is in our Ghostland map
         matched_ghost_host = None
         for host in GHOSTLAND_SHOPS:
             if host in full_url:
