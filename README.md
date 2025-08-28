@@ -127,16 +127,20 @@ Host: gandalfsax.com
 Title: Gandalf eShop
 ```
 
-## SWITCH2XCI Reddit and Discord Channel to download Games and Updates (Tinfoil Alternative) 
-### Accept the codes to join the private channels on Reddit and Discord:
+## Tinfoil Alternatives
+
+### SWITCH2XCI Reddit Channel [Accept the codes](https://docs.google.com/forms/d/e/1FAIpQLSe2GJNZ2rVqkSgc1odtfgKhlvfvfWFEnSRTlngaVO2BlM2gYw/viewform) to join the private channel:
 
 [Reddit](https://www.reddit.com/r/SWITCH2XCI/)
 ```
 https://www.reddit.com/r/SWITCH2XCI/
 ```
-[Discord](https://discord.com/invite/Z4dW3eWGH3)
+
+### [Telegram Bot](https://t.me/NSW_TorrentLibrary)
+
 ```
-https://discord.com/invite/Z4dW3eWGH3
+https://t.me/NSW_TorrentLibrary
+Pass: Rome
 ```
 
 ## Requirements
