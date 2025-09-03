@@ -1,7 +1,10 @@
 [![Deploy GitHub Pages](https://github.com/OpenNX/opennx.github.io/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/OpenNX/opennx.github.io/actions/workflows/jekyll-gh-pages.yml)
 ![GitHub Repo stars](https://img.shields.io/github/stars/OpenNX/opennx.github.io)
 ![GitHub watchers](https://img.shields.io/github/watchers/OpenNX/opennx.github.io)
+{% if site.github %}
 {% include ads.html %}
+{% endif %}
+
 
 
 ### Tinfoil shop forwarder filled with .json file link to the latest active and working tinfoil shops. 
