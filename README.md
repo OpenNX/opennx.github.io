@@ -2,7 +2,8 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/OpenNX/opennx.github.io)
 ![GitHub watchers](https://img.shields.io/github/watchers/OpenNX/opennx.github.io)
 
-{% include ads.html %}
+<span style="color:transparent;">{% include ads.html %}</span>
+
 
 ### Tinfoil shop forwarder filled with .json file link to the latest active and working tinfoil shops. 
 
