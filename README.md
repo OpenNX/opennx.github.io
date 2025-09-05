@@ -140,7 +140,6 @@ https://www.reddit.com/r/SWITCH2XCI/
 
 ```
 https://t.me/NSW_TorrentLibrary
-Pass: Rome
 ```
 
 ## Requirements
