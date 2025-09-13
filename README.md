@@ -22,13 +22,13 @@ ___
 
 ## Shop Links
 
-To add shops to Tinfoil go to Tinfoil > File Browser > Press - New > Fill the fields with the information about the [shop](https://github.com/OpenNX/opennx.github.io/edit/main/README.md#open-nx). 
+To add shops to Tinfoil go to Tinfoil > File Browser > Press - New > Fill the fields with the information about the [shop](https://opennx.github.io/tinfoil). 
 
 ![image](https://github.com/user-attachments/assets/91d3fddf-74a6-46fe-8a0b-b3de94e7646a)
 
 
 
-## [Open NX](https://github.com/OpenNX/opennx.github.io)
+## [Open NX](https://opennx.github.io/tinfoil)
 
 This repository installs a package with the shops below and contains a status update for each shop in the success message. Adding this package should be sufficient and recommended for your game library.
 
