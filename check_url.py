@@ -9,18 +9,20 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 # --- CONFIGURATION ---
 
+# The source URL to fetch the master list of shops from.
 SOURCE_URL = "https://opennx.github.io/tinfoil.json"
 
 # Ghostland shops mapping to their "/up" check URLs
 GHOSTLAND_SHOPS = {
     "nx.ghostland.at": "https://nx.ghostland.at/up",
-    "nx-retro.ghostland.at": "https://nx-retro.ghostland.at/up",
-    "nx-saves.ghostland.at": "https://nx-saves.ghostland.at/up"
+    "nx-retro.ghostland.at": "https://nx.ghostland.at/up",
+    "nx-saves.ghostland.at": "https://nx.ghostland.at/up"
 }
 
 # --- DATA FETCHING ---
 
 def fetch_shop_list():
+    """Fetches the master list of shops from the source JSON URL."""
     try:
         print(f"Fetching master shop list from {SOURCE_URL}...")
         response = requests.get(SOURCE_URL, timeout=15, verify=False)
@@ -37,23 +39,26 @@ def fetch_shop_list():
 # --- STATUS CHECKING FUNCTIONS ---
 
 def check_ghostland_status(status_url):
+    """Ghostland shops return plain 'ok' on their /up endpoint when operational."""
     try:
-        headers = {'User-Agent': 'Python Status Checker/2.4'}
+        headers = {'User-Agent': 'Python Status Checker/2.5'}
         response = requests.get(status_url, timeout=10, headers=headers, verify=False)
         response.raise_for_status()
+
         content = response.text.strip().lower()
         if content == "ok":
             return "Online"
         else:
-            return f"Offline (resp: {content})"
+            return "Offline"
     except requests.exceptions.RequestException as e:
         print(f"[Ghostland check error] {status_url}: {e}")
         return "Check failed"
 
 def check_generic_url(url):
+    """Performs a comprehensive check on a generic URL."""
     try:
         response = requests.get(url, timeout=10, stream=True, verify=False)
-        
+
         if response.status_code != 200:
             return f"Offline ({response.status_code})"
 
@@ -62,10 +67,9 @@ def check_generic_url(url):
             return "Invalid content"
 
         content = response.raw.read(200000, decode_content=True).decode('utf-8', 'ignore').lower()
-        
         soup = BeautifulSoup(content, "html.parser")
         title_text = soup.title.string.strip().lower() if soup.title else ""
-        
+
         if "maintenance" in title_text:
             return "Under maintenance"
 
@@ -87,8 +91,8 @@ def check_generic_url(url):
         return "Connection failed"
 
 # --- MAIN SCRIPT LOGIC ---
-
 def main():
+    """Main function to fetch the remote shop list, check each one, and update the local tinfoil.json file."""
     master_data = fetch_shop_list()
     if not master_data:
         return
@@ -98,7 +102,7 @@ def main():
     print("\nChecking individual shop statuses...")
 
     for full_url in directories:
-        host = urlparse(full_url).netloc
+        host = urlparse(full_url).netloc or full_url
         print(f"-> Checking '{host}' ({full_url})...")
 
         matched_ghost_host = None
@@ -111,11 +115,15 @@ def main():
             status = check_ghostland_status(GHOSTLAND_SHOPS[matched_ghost_host])
         else:
             status = check_generic_url(full_url)
-        
+
         print(f"   - Status: {status}")
         status_parts.append(f"{host}:  {status}")
 
-    master_data["success"] = "Open NX Shops status list:\n\n" + "\n".join(status_parts) + "\n\nStar on GitHub:\nhttps://github.com/OpenNX/opennx.github.io"
+    master_data["success"] = (
+        "Open NX Shops status list:\n\n" +
+        "\n".join(status_parts) +
+        "\n\nStar on GitHub:\nhttps://github.com/OpenNX/opennx.github.io"
+    )
 
     try:
         with open("tinfoil.json", "w", encoding="utf-8") as f:
