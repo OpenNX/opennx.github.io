@@ -1,6 +1,7 @@
 import json
 import requests
 from bs4 import BeautifulSoup
+from urllib.parse import urlparse
 
 # Suppress warnings from insecure requests, as we will disable SSL verification.
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -8,23 +9,18 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 # --- CONFIGURATION ---
 
-# The source URL to fetch the master list of shops from.
 SOURCE_URL = "https://opennx.github.io/tinfoil.json"
 
 # Ghostland shops mapping to their "/up" check URLs
 GHOSTLAND_SHOPS = {
     "nx.ghostland.at": "https://nx.ghostland.at/up",
-    "nx-retro.ghostland.at": "https://nx.ghostland.at/up",
-    "nx-saves.ghostland.at": "https://nx.ghostland.at/up"
+    "nx-retro.ghostland.at": "https://nx-retro.ghostland.at/up",
+    "nx-saves.ghostland.at": "https://nx-saves.ghostland.at/up"
 }
 
 # --- DATA FETCHING ---
 
 def fetch_shop_list():
-    """
-    Fetches the master list of shops from the source JSON URL.
-    Returns the entire data structure.
-    """
     try:
         print(f"Fetching master shop list from {SOURCE_URL}...")
         response = requests.get(SOURCE_URL, timeout=15, verify=False)
@@ -41,29 +37,20 @@ def fetch_shop_list():
 # --- STATUS CHECKING FUNCTIONS ---
 
 def check_ghostland_status(status_url):
-    """
-    Ghostland shops return plain 'ok' on their /up endpoint when operational.
-    """
     try:
         headers = {'User-Agent': 'Python Status Checker/2.4'}
         response = requests.get(status_url, timeout=10, headers=headers, verify=False)
         response.raise_for_status()
-
         content = response.text.strip().lower()
         if content == "ok":
-            return f"Online"
+            return "Online"
         else:
             return f"Offline (resp: {content})"
-
     except requests.exceptions.RequestException as e:
         print(f"[Ghostland check error] {status_url}: {e}")
-        return f"(Check failed)"
+        return "Check failed"
 
 def check_generic_url(url):
-    """
-    Performs a comprehensive check on a generic URL.
-    This function now expects a full URL including the scheme.
-    """
     try:
         response = requests.get(url, timeout=10, stream=True, verify=False)
         
@@ -72,7 +59,7 @@ def check_generic_url(url):
 
         content_type = response.headers.get('Content-Type', '').lower()
         if 'text/html' not in content_type:
-            return f"Invalid content"
+            return "Invalid content"
 
         content = response.raw.read(200000, decode_content=True).decode('utf-8', 'ignore').lower()
         
@@ -80,51 +67,44 @@ def check_generic_url(url):
         title_text = soup.title.string.strip().lower() if soup.title else ""
         
         if "maintenance" in title_text:
-            return f"Under maintenance"
+            return "Under maintenance"
 
         broken_indicators = ["default web page", "site not found", "502 bad gateway", "error 403"]
         if any(bad in content for bad in broken_indicators):
-            return f"Error/Placeholder"
+            return "Error/Placeholder"
 
         working_indicators = [".nsp", ".xci", "tinfoil", ".nsz", "eshop", "shop", "switch"]
         if any(good in content for good in working_indicators):
-            return f"Online"
+            return "Online"
 
         if len(content.strip()) < 300:
-            return f"Possibly blank"
+            return "Possibly blank"
 
-        return f"Online"
+        return "Online"
 
     except requests.exceptions.RequestException as e:
         print(f"    - Error connecting to {url}: {e}")
-        return f"Connection failed"
+        return "Connection failed"
 
 # --- MAIN SCRIPT LOGIC ---
+
 def main():
-    """
-    Main function to fetch the remote shop list, check each one,
-    and update the local tinfoil.json file.
-    """
     master_data = fetch_shop_list()
     if not master_data:
         return
 
+    directories = master_data.get("directories", [])
     status_parts = []
     print("\nChecking individual shop statuses...")
 
-    for shop in master_data.get("locations", []):
-        full_url = shop.get("url")
-        title = shop.get("title")
+    for full_url in directories:
+        host = urlparse(full_url).netloc
+        print(f"-> Checking '{host}' ({full_url})...")
 
-        if not full_url or not title:
-            continue
-
-        print(f"-> Checking '{title}' ({full_url})...")
-    
         matched_ghost_host = None
-        for host in GHOSTLAND_SHOPS:
-            if host in full_url:
-                matched_ghost_host = host
+        for ghost_host in GHOSTLAND_SHOPS:
+            if ghost_host in full_url:
+                matched_ghost_host = ghost_host
                 break
 
         if matched_ghost_host:
@@ -133,9 +113,9 @@ def main():
             status = check_generic_url(full_url)
         
         print(f"   - Status: {status}")
-        status_parts.append(f"{title}:  {status}")
+        status_parts.append(f"{host}:  {status}")
 
-    master_data["success"] = "Open NX Shops status list:\n\n" + "\n".join(status_parts) + "\n\nStar on GitHub:\nhttps://github.com/OpenNX/opennx.github.io" 
+    master_data["success"] = "Open NX Shops status list:\n\n" + "\n".join(status_parts) + "\n\nStar on GitHub:\nhttps://github.com/OpenNX/opennx.github.io"
 
     try:
         with open("tinfoil.json", "w", encoding="utf-8") as f:
