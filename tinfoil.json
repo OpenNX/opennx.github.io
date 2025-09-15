@@ -1,12 +1,12 @@
 {
-"directories": [
-"https://nx-retro.ghostland.at",
-"https://nx-saves.ghostland.at",
-"https://nx.ghostland.at",
-"http://switchbr.com",
-"https://cyrilz87.net",
-"https://free.worldigital-brasil.com",
-"https://gandalfsax.com"
-],
-    "success": "Open NX Shops status list:\n\n[Open NX] Ghost eShop Retro NX:  Online\n[Open NX] NX Shared Saves:  Online\n[Open NX] Ghost eShop PUBLIC:  Online\n[Open NX] SwitchBR:  Possibly blank\n[Open NX] Egg Fried Rice Shop:  Invalid content\n[Open NX] world digital:  Online\n[Open NX] Gandalf eShop:  Offline (403)\n\nStar on GitHub:\nhttps://github.com/OpenNX/opennx.github.io"
+    "directories": [
+        "https://nx-retro.ghostland.at",
+        "https://nx-saves.ghostland.at",
+        "https://nx.ghostland.at",
+        "http://switchbr.com",
+        "https://cyrilz87.net",
+        "https://free.worldigital-brasil.com",
+        "https://gandalfsax.com"
+    ],
+    "success": "Open NX Shops status list:\n\n\n\nStar on GitHub:\nhttps://github.com/OpenNX/opennx.github.io"
 }
