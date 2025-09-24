@@ -144,7 +144,7 @@ https://t.me/NSW_TorrentLibrary
 
 ## Requirements
 
-* Nintendo Switch running CFW ([Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases) with [Sigpatches](https://github.com/ITotalJustice/patches/releases) recommended).
+* Nintendo Switch running [CFW](https://opennx.github.io/what-is-custom-firmware/) ([Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases) with [Sigpatches](https://github.com/ITotalJustice/patches/releases) recommended).
 
 * Relies on [Tinfoil](https://tinfoil.io).
 
