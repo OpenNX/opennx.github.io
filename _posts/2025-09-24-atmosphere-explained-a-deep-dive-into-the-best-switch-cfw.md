@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Atmosphère Explained: A Deep Dive into the Best Switch CFW"
+title: "Atmosphere Explained: A Deep Dive into the Best Switch CFW"
 date: 2025-09-24
 categories: guides cfw
 ---
