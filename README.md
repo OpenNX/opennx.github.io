@@ -187,6 +187,11 @@ ___
 
 > The author is NOT affiliated with the content that you can retrieve thanks to any Tinfoil shop.
 
+## Our Latest Guides
+
+* [Hekate Explained: The Swiss Army Knife for Your Switch](/hekate-explained-the-swiss-army-knife-for-your-switch/)
+* [Atmosphere Explained: A Deep Dive into the Best Switch CFW](/atmosphere-explained-a-deep-dive-into-the-best-switch-cfw/)
+* [What is Custom Firmware (CFW)? A Beginner's Guide](/what-is-custom-firmware-cfw-a-beginners-guide/)
 
 ## Also check out:
 
