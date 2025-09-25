@@ -189,9 +189,9 @@ ___
 
 ## Our Latest Guides
 
-* [Hekate Explained: The Swiss Army Knife for Your Switch](/hekate-explained-the-swiss-army-knife-for-your-switch/)
-* [Atmosphere Explained: A Deep Dive into the Best Switch CFW](/atmosphere-explained-a-deep-dive-into-the-best-switch-cfw/)
-* [What is Custom Firmware (CFW)? A Beginner's Guide](/what-is-custom-firmware-cfw-a-beginners-guide/)
+* [Hekate Explained: The Swiss Army Knife for Your Switch](https://opennx.github.io/hekate-explained-the-swiss-army-knife-for-your-switch/)
+* [Atmosphere Explained: A Deep Dive into the Best Switch CFW](https://opennx.github.io/atmosphere-explained-a-deep-dive-into-the-best-switch-cfw/)
+* [What is Custom Firmware (CFW)? A Beginner's Guide](https://opennx.github.io/what-is-custom-firmware/)
 
 ## Also check out:
 
