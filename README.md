@@ -95,7 +95,6 @@ Title: Ultra NX
 ```
 
 
-
 ### Backup of Shops with various Functions
 ```
 # JITS (works with your own GDrive if you follow https://games.jits.cc/account#instructions)
@@ -128,7 +127,7 @@ Title: Gandalf eShop
 ```
 
 ## Tinfoil Alternatives
-
+---
 ### SWITCH2XCI Reddit Channel [Accept the codes](https://docs.google.com/forms/d/e/1FAIpQLSe2GJNZ2rVqkSgc1odtfgKhlvfvfWFEnSRTlngaVO2BlM2gYw/viewform) to join the private channel:
 
 [Reddit](https://www.reddit.com/r/SWITCH2XCI/)
