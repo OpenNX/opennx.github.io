@@ -122,7 +122,7 @@ def main():
     master_data["success"] = (
         "Open NX Shops status list:\n\n" +
         "\n".join(status_parts) +
-        "\n\nStar on GitHub:\nhttps://github.com/OpenNX/opennx.github.io"
+        "\n\n Suggest a new shop or Star on GitHub:\nhttps://github.com/OpenNX/opennx.github.io"
     )
 
     try:
