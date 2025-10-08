@@ -188,7 +188,7 @@ ___
 
 ## Also check out:
 
-> [orn8/tinfoil](https://github.com/orn8/tinfoil) and [carcaschoi/tinfoil-json](https://github.com/carcaschoi/tinfoil-json) - The inspiration for this project.
+> [carcaschoi/tinfoil-json](https://github.com/carcaschoi/tinfoil-json) - The inspiration for this project.
 
 > [Ghost eShop Wiki](https://wiki.ghosteshop.com/docs/category/nx--nintendo-switch) - Contains a lot of information, from how to operate Ghost eShop, to their very useful troubleshooting pages.
 
