@@ -8,5 +8,5 @@
         "https://free.worldigital-brasil.com",
         "free.epshop.uk"
     ],
-    "success": "Open NX Shops status list:\n\nnx-retro.ghostland.at:  Online\nnx-saves.ghostland.at:  Online\nnx.ghostland.at:  Online\nswitchbr.com:  Possibly blank\ncyrilz87.net:  Offline (403)\nfree.worldigital-brasil.com:  Online\nfree.epshop.uk:  Connection failed\n\n Suggest a new shop or Star on GitHub:\nhttps://github.com/OpenNX/opennx.github.io"
+    "success": "Open NX Shops status list:\n\nnx-retro.ghostland.at:  Online\nnx-saves.ghostland.at:  Online\nnx.ghostland.at:  Online\nswitchbr.com:  Possibly blank\ncyrilz87.net:  Invalid content\nfree.worldigital-brasil.com:  Online\nfree.epshop.uk:  Connection failed\n\n Suggest a new shop or Star on GitHub:\nhttps://github.com/OpenNX/opennx.github.io"
 }
