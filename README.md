@@ -105,7 +105,7 @@ Protocol: https
 Host: magicmonkei.com
 Path: /tinfoil
 Username: your-username 
-Password: -
+Password: your-password
 Title: Magic Monkei
 ```
 
