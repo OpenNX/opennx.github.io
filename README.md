@@ -55,13 +55,6 @@ Host: nx-retro.ghostland.at
 Title: Ghost eShop RETRO
 ```
 
-### SwitchBR
-```
-Protocol: http
-Host: switchbr.com
-Title: SwitchBR
-```
-
 ### World Digital
 ```
 Protocol: https
