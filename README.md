@@ -127,13 +127,6 @@ Host: e.cchi.me
 Title: ESA
 ```
 
-### Gandalf eShop
-```
-Protocol: https
-Host: gandalfsax.com
-Title: Gandalf eShop
-```
-
 ## Tinfoil Alternatives
 ---
 
