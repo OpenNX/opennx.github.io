@@ -78,31 +78,6 @@ Host: cyrilz87.net
 Title: Egg Fried Rice Shop
 ```
 
-## Magic Monkei
-
-VIP Tinfoil Shop. [Subscribe](https://app.magicmonkei.com/signup?r=opennx) to Magic Monkei and access a vast library of Tinfoil games. 
-Next, add your user tinfoil server:
-
-```
-Protocol: https
-Host: magicmonkei.com
-Path: /tinfoil
-Username: your-username 
-Password: your-password
-Title: Magic Monkei
-```
-
-Or go to this host and install the Magic Monkei app:
-
-```
-Protocol: https
-Host: magicmonkei.com/app
-Title: Magic Monkei App
-```
-
-
-------------
-
 ### Backup of Shops with various Functions
 ```
 # JITS (works with your own GDrive if you follow https://games.jits.cc/account#instructions)
