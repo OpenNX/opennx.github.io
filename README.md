@@ -102,6 +102,29 @@ Host: e.cchi.me
 Title: ESA
 ```
 
+## Magic Monkei
+
+VIP Tinfoil Shop. [Subscribe](https://app.magicmonkei.com/signup?r=opennx) to Magic Monkei and access a vast library of Tinfoil games. 
+Next, add your user tinfoil server:
+
+```
+Protocol: https
+Host: magicmonkei.com
+Path: /tinfoil
+Username: your-username 
+Password: your-password
+Title: Magic Monkei
+```
+
+Or go to this host and install the Magic Monkei app:
+
+```
+Protocol: https
+Host: magicmonkei.com/app
+Title: Magic Monkei App
+```
+---------
+
 ## Tinfoil Alternatives
 ---
 
