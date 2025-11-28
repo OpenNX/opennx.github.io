@@ -24,9 +24,9 @@ ___
 
 To add shops to Tinfoil go to Tinfoil > File Browser > Press - New > Fill the fields with the information about the [shop](https://opennx.github.io/tinfoil). 
 
-![image](https://github.com/user-attachments/assets/91d3fddf-74a6-46fe-8a0b-b3de94e7646a)
+![2025112811574100](https://github.com/user-attachments/assets/2482c3de-cb37-4b3c-84eb-a704011cd392)
 
-
+![2025112811584600](https://github.com/user-attachments/assets/3b20c87a-b302-4ae0-8742-693252a7558b)
 
 ## [Open NX](https://opennx.github.io/tinfoil)
 
