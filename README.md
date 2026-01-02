@@ -100,6 +100,14 @@ Host: cyrilz87.net
 Title: Egg Fried Rice Shop
 ```
 
+### [Kronos Zenten Shop](https://myrincon.es/Zenten)
+
+```
+Protocol: https
+Host: myrincon.es
+Path: /net/Zenten/
+Title: Kronos Zenten Shop
+```
 ---------
 
 ## Tinfoil Alternatives
