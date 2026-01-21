@@ -10,5 +10,5 @@
         "https://myrincon.es/net/Zenten",
         "https://gandalfsax.com/"
     ],
-    "success": "Open NX Shops status list:\n\nnx-meta.nlib.cc:  Online\nnx-retro.ghostland.at:  Check failed\nnx-saves.ghostland.at:  Online\nnx.ghostland.at:  Online\ncyrilz87.net:  Invalid content\nfree.worldigital-brasil.com:  Online\nmagicmonkei.com:  Online\nmyrincon.es:  Online\ngandalfsax.com:  Offline (403)\n\nSuggest a new shop on:\nhttps://opennx.github.io/"
+    "success": "Open NX Shops status list:\n\nnx-meta.nlib.cc:  Connection failed\nnx-retro.ghostland.at:  Online\nnx-saves.ghostland.at:  Online\nnx.ghostland.at:  Online\ncyrilz87.net:  Invalid content\nfree.worldigital-brasil.com:  Online\nmagicmonkei.com:  Online\nmyrincon.es:  Online\ngandalfsax.com:  Offline (403)\n\nSuggest a new shop on:\nhttps://opennx.github.io/"
 }
