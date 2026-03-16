@@ -48,7 +48,7 @@ Next, add your user tinfoil server:
 
 ```
 Protocol: https
-Host: magicmonkei.com
+Host: shop.magicmonkei.com
 Path: /tinfoil
 Username: your-username 
 Password: your-password
