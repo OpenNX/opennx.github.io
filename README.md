@@ -41,9 +41,9 @@ Title: Open NX
 
 ## Current Shops in Open NX:
 
-### Magic Monkei
+### [Magic Monkei](https://affiliate.magicmonkei.com/pt-BR/signup?ref=opennx)
 
-VIP Tinfoil Shop. [Subscribe](https://app.magicmonkei.com/signup?r=opennx) to Magic Monkei and access a vast library of Tinfoil games. 
+VIP Tinfoil Shop. [Subscribe](https://affiliate.magicmonkei.com/pt-BR/signup?ref=opennx) to Magic Monkei and access a vast library of Tinfoil games. 
 Next, add your user tinfoil server:
 
 ```
