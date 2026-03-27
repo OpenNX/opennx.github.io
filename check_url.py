@@ -77,7 +77,9 @@ def check_generic_url(url):
         if any(bad in content for bad in broken_indicators):
             return "Error/Placeholder"
 
-        working_indicators = [".nsp", ".xci", "tinfoil", ".nsz", "eshop", "shop", "switch"]
+        working_indicators = [".nsp", ".xci", "/files/", "tinfoil", ".nsz", ".iso",
+        "eshop", "shop", "switch", "game", "region", "release",
+        "\"files\":", "\"directories\":", "index.html", "server"]
         if any(good in content for good in working_indicators):
             return "Online"
 
