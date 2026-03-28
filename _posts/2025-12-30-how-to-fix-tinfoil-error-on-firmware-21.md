@@ -27,7 +27,7 @@ This is the best way to fix the error without changing your entire Atmosphere se
 
 If you are already using the **CNX Pack** (formerly Sphaira) and prefer to update your entire system at once, the latest release now includes a working version of Tinfoil out of the box.
 
-1.  **Download CNX Release:** **[CNX Pack v21.1.0-1](https://github.com/CostelaCNX/CNX/releases/tag/21.1.0-1)**
+1.  **Download the last CNX Release:** **[CNX Pack](https://github.com/CostelaCNX/CNX/releases)**
 2.  **Install:** Extract and copy the entire pack to the root of your SD card, overwriting all existing files.
 3.  **Verify:** This will update Atmosphere, Sigpatches, and Tinfoil simultaneously to match Firmware 21 compatibility.
 
