@@ -115,6 +115,19 @@ Protocol: https
 Host: gandalfsax.com
 Title: Gandalf eShop
 ```
+
+### [Emre Game Shop](https://tinfoil.emre.zip)
+
+Premium Tinfoil shop with 27,829 games + 14,733 DLCs. 3-day free trial available. [Sign up](https://tinfoil.emre.zip/sign-up) to get your credentials.
+
+```
+Protocol: https
+Host: tinfoil.emre.zip
+Path: /api/shop
+Username: your-username
+Password: your-password
+Title: Emre Game Shop
+```
 ---------
 
 ## Tinfoil Alternatives
