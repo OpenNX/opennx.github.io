@@ -43,7 +43,7 @@ Title: Open NX
 
 ### [Magic Monkei](https://affiliate.magicmonkei.com/pt-BR/signup?ref=opennx)
 
-VIP Tinfoil Shop. [Subscribe](https://affiliate.magicmonkei.com/pt-BR/signup?ref=opennx) to Magic Monkei and access a vast library of Tinfoil games. 
+Paid Tinfoil Shop and Homebrew App. [Subscribe](https://affiliate.magicmonkei.com/pt-BR/signup?ref=opennx) to Magic Monkei and access a vast library of Tinfoil games. 
 Next, add your user tinfoil server:
 
 ```
@@ -77,12 +77,17 @@ Host: nx-retro.ghostland.at
 Title: Ghost eShop RETRO
 ```
 
-### World Digital
+### [World Digital](https://free.worldigital-brasil.com/auth?ref=11699060)
+
+Paid Tinfoil Shop. [Subscribe](https://free.worldigital-brasil.com/auth?ref=11699060) and you will get 7 extra days when you subscribe to any plan. 
+Next, add your user tinfoil server:
 ```
 Protocol: https
 Host: free.worldigital-brasil.com
-Path: /
-Title: world digital
+Path: 
+Username: your-username 
+Password: your-password
+Title: World Digital
 ```
 
 ### NX Shared Saves
@@ -118,7 +123,7 @@ Title: Gandalf eShop
 
 ### [Emre Game Shop](https://tinfoil.emre.zip)
 
-Premium Tinfoil shop with 27,829 games + 14,733 DLCs. 3-day free trial available. [Sign up](https://tinfoil.emre.zip/sign-up) to get your credentials.
+Paid Tinfoil shop. 3-day free trial available. [Sign up](https://tinfoil.emre.zip/sign-up) to get your credentials.
 
 ```
 Protocol: https
