@@ -53,7 +53,7 @@ If you are using **Sphaira** as your main homebrew launcher interface, it will a
 
 Once opened, you will be greeted by Cyberfoil's clean, modern tile layout:
 
-<img width="1280" height="720" alt="2026052315154600-1E91DE9ADA44E48665B17E11B1E899DB" src="https://github.com/user-attachments/assets/7d506413-4391-41ca-bce0-120f08ffcbdd" />
+![](https://github.com/user-attachments/assets/7d506413-4391-41ca-bce0-120f08ffcbdd)
 
 ---
 
@@ -63,15 +63,15 @@ Tinfoil relies on adding traditional, sometimes bloated index URLs. Cyberfoil si
 1. **Open the Settings Menu:** Using the D-Pad or touch controls, select the **Settings** tile gear icon at the bottom center of the main screen. Once inside, press **L** or **R** to jump over to the **Shop** section tab on the left menu sidebar.
 2. **Select Add New Shop:** Scroll down the Shop list options and select **Add new shop**.
    
-   <img width="1280" height="720" alt="2026052315170000-1E91DE9ADA44E48665B17E11B1E899DB" src="https://github.com/user-attachments/assets/4a1900a4-9462-4378-88c7-38c6e794e89e" />
+   ![](https://github.com/user-attachments/assets/4a1900a4-9462-4378-88c7-38c6e794e89e)
 
 3. **Set the Shop Protocol:** A prompt will appear asking you to choose the network protocol. Select **HTTPS** to ensure a secure connection to the repository host.
    
-  <img width="1280" height="720" alt="2026052315161300-1E91DE9ADA44E48665B17E11B1E899DB" src="https://github.com/user-attachments/assets/fc3bf98d-df05-4c8a-8e58-c1509f615943" />
+  ![](https://github.com/user-attachments/assets/fc3bf98d-df05-4c8a-8e58-c1509f615943)
 
 4. **Select the Shop Port:** Next, the app will ask you to pick which port to use. Select **Use default (443)** which is the standard automated port assignment for secure web connections.
    
-   <img width="1280" height="720" alt="2026052315163400-1E91DE9ADA44E48665B17E11B1E899DB" src="https://github.com/user-attachments/assets/72efb55b-eee8-443b-a0dd-48328181be6d" />
+   ![](https://github.com/user-attachments/assets/72efb55b-eee8-443b-a0dd-48328181be6d)
 
 5. **Input the OpenNX Server Paths:** You will now be prompted to fill in the exact server addresses. Enter the following details carefully:
    * **Host:** `opennx.github.io`
@@ -81,7 +81,7 @@ Tinfoil relies on adding traditional, sometimes bloated index URLs. Cyberfoil si
    *(Leave Username and Password completely **blank**, as this public repository forwarder doesn't require private authentication).*
 6. **Enable Tinfoil Mode Compatibility:** Before exiting, make sure the **Tinfoil Mode (legacy shop compatibility)** checkbox is ticked. This ensures that the custom index parsing structures mapped by OpenNX translate perfectly onto Cyberfoil's modern UI environment.
    
-   <img width="1280" height="720" alt="2026052315165700-1E91DE9ADA44E48665B17E11B1E899DB" src="https://github.com/user-attachments/assets/ae4b7bb3-225d-4aac-ae18-161bcb0e06b2" />
+   ![](https://github.com/user-attachments/assets/ae4b7bb3-225d-4aac-ae18-161bcb0e06b2)
 
 ---
 
