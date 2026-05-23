@@ -92,7 +92,7 @@ Once the network path is locked in:
 2. The app will fetch the layout directly from `https://opennx.github.io/cyberfoil.json`.
 3. Select the **Install from eShop** tile on your main menu. Your game lists, active updates, and library titles will instantly populate on the screen, ready for a smoother, faster experience than traditional Tinfoil layouts.
 
-> **Troubleshooting Connection Issues:** If you encounter a connection error, double-check your spelling on the host and path fields. If your network blocks GitHub Pages, you can use the raw fallback path: **Protocol:** `https` | **Host:** `raw.githubusercontent.com` | **Path:** `OpenNX/opennx.github.io/main/cyberfoil.json`.
+**Troubleshooting Connection Issues:** If you encounter a connection error, double-check your spelling on the host and path fields. If your network blocks GitHub Pages, you can use the raw fallback path: **Protocol:** `https` | **Host:** `raw.githubusercontent.com` | **Path:** `OpenNX/opennx.github.io/main/cyberfoil.json`.
 
 ***
 
