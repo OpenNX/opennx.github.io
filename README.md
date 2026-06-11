@@ -45,7 +45,6 @@ Title: Open NX
 
 Paid Tinfoil Shop and Homebrew App. [Subscribe](https://affiliate.magicmonkei.com/pt-BR/signup?ref=opennx) to Magic Monkei and access a vast library of Tinfoil games. 
 Next, add your user tinfoil server:
-
 ```
 Protocol: https
 Host: shop.magicmonkei.com
@@ -56,7 +55,6 @@ Title: Magic Monkei
 ```
 
 Cyberfoil Shop version:
-
 ```
 Protocol: https
 Host: cyberfoil.magicmonkei.com
@@ -67,14 +65,26 @@ Title: Magic Monkei
 ```
 
 Or go to this host and install the Magic Monkei app:
-
 ```
 Protocol: https
 Host: magicmonkei.com/app
 Title: Magic Monkei App
 ```
 
+### [Pixel Goblin](https://pixelgoblin.link/r/awarelocale28)
+
+Paid Tinfoil shop with a 3-day free trial. [Sign up](https://pixelgoblin.link/r/awarelocale28) to get your credentials, then add your user tinfoil server:
+```
+Protocol: https
+Host: pixelgoblin.link
+Path: /api/shop
+Username: your-username
+Password: your-password
+Title: Pixel Goblin
+```
+
 ### Ghost eShop
+
 ```
 Protocol: https
 Host: nx.ghostland.at
@@ -82,6 +92,7 @@ Title: Ghost eShop PUBLIC
 ```
 
 ### Ghost eShop RETRO
+
 ```
 Protocol: https
 Host: nx-retro.ghostland.at
@@ -132,18 +143,7 @@ Host: gandalfsax.com
 Title: Gandalf eShop
 ```
 
-### Pixel Goblin
 
-Paid Tinfoil shop with a 3-day free trial. Sign up to get your credentials, then add your user tinfoil server:
-
-```
-Protocol: https
-Host: pixelgoblin.link
-Path: /api/shop
-Username: your-username
-Password: your-password
-Title: Pixel Goblin
-```
 ---------
 
 ## Tinfoil Alternatives
