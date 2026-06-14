@@ -43,7 +43,7 @@ Title: Open NX
 
 ### [Magic Monkei](https://affiliate.magicmonkei.com/pt-BR/signup?ref=opennx)
 
-Paid Tinfoil Shop and Homebrew App. [Subscribe](https://affiliate.magicmonkei.com/pt-BR/signup?ref=opennx) to Magic Monkei and access a vast library of Tinfoil games. 
+Paid Tinfoil/Cyberfoil Shop and Homebrew App. [Subscribe](https://affiliate.magicmonkei.com/pt-BR/signup?ref=opennx) to Magic Monkei and access a vast library of Tinfoil games. 
 Next, add your user tinfoil server:
 ```
 Protocol: https
@@ -58,6 +58,7 @@ Cyberfoil Shop version:
 ```
 Protocol: https
 Host: cyberfoil.magicmonkei.com
+Port: 443
 Path: 
 Username: your-username 
 Password: your-password
@@ -73,10 +74,21 @@ Title: Magic Monkei App
 
 ### [Pixel Goblin](https://pixelgoblin.link/r/awarelocale28)
 
-Paid Tinfoil shop with a 3-day free trial. [Sign up](https://pixelgoblin.link/r/awarelocale28) to get your credentials, then add your user tinfoil server:
+Paid Tinfoil/Cyberfoil shop  with a 3-day free trial. [Sign up](https://pixelgoblin.link/r/awarelocale28) to get your credentials, then add your user tinfoil server:
 ```
 Protocol: https
 Host: pixelgoblin.link
+Path: /api/shop
+Username: your-username
+Password: your-password
+Title: Pixel Goblin
+```
+
+Cyberfoil Shop version:
+```
+Protocol: https
+Host: pixelgoblin.link
+Port: 443
 Path: /api/shop
 Username: your-username
 Password: your-password
