@@ -12,5 +12,5 @@
         "https://pixelgoblin.link",
         "https://tiny.cc/portnx"
     ],
-    "success": "Open NX Shops status list:\n\nnx-meta.nlib.cc:  Online\nnx-retro.ghostland.at:  Offline\nnx-saves.ghostland.at:  Offline\nnx.ghostland.at:  Offline\ncyrilz87.net:  Invalid content\nfree.worldigital-brasil.com:  Offline (403)\nmagicmonkei.com:  Online\nmyrincon.es:  Online\ngandalfsax.com:  Offline (403)\npixelgoblin.link:  Online\n\nSuggest a new shop on:\nhttps://opennx.github.io/"
+    "success": "Open NX Shops status list:\n\nnx-meta.nlib.cc:  Online\nnx-retro.ghostland.at:  Offline\nnx-saves.ghostland.at:  Offline\nnx.ghostland.at:  Offline\ncyrilz87.net:  Invalid content\nfree.worldigital-brasil.com:  Offline (403)\nmagicmonkei.com:  Online\nmyrincon.es:  Online\ngandalfsax.com:  Offline (403)\npixelgoblin.link:  Online\ntiny.cc:  Offline (403)\n\nSuggest a new shop on:\nhttps://opennx.github.io/"
 }
