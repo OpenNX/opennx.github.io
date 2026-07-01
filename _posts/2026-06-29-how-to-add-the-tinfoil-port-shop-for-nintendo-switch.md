@@ -35,7 +35,7 @@ Setting up this repository takes less than a minute. Ensure your Nintendo Switch
 3. Press **Right** on your D-pad to enter the file directory area, then press the **Minus (-)** button on your controller to create a **New** network source.
 4. Fill in the network configuration form exactly as follows:
    * **Protocol:** `https`
-   * **Host:** `tiny.cc`
+   * **Host:** `opennx.github.io`
    * **Port:** *(Leave blank)*
    * **Path:** `/portnx`
    * **Title:** `Port NX` *(Or any identifying name you prefer)*
