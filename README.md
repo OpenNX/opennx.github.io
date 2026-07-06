@@ -242,6 +242,3 @@ ___
 ## Also check out:
 
 > [carcaschoi/tinfoil-json](https://github.com/carcaschoi/tinfoil-json) - The inspiration for this project.
-
-> [Ghost eShop Wiki](https://wiki.ghosteshop.com/docs/category/nx--nintendo-switch) - Contains a lot of information, from how to operate Ghost eShop, to their very useful troubleshooting pages.
-
