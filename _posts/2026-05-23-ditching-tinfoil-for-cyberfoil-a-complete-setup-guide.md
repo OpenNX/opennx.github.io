@@ -92,11 +92,15 @@ Once the network path is locked in:
 2. The app will fetch the layout directly from `https://opennx.github.io/cyberfoil.json`.
 3. Select the **Install from eShop** tile on your main menu. Your game lists, active updates, and library titles will instantly populate on the screen, ready for a smoother, faster experience than traditional Tinfoil layouts.
 
-**Troubleshooting Connection Issues:** If you encounter a connection error, double-check your spelling on the host and path fields. If your network blocks GitHub Pages, you can use the raw fallback path: 
+---
 
-**Protocol:** `https`
-**Host:** `raw.githubusercontent.com`
-**Path:** `OpenNX/opennx.github.io/main/cyberfoil.json`.
+### Verifying Repositories & Uptime Troubleshooting
+
+Because the underlying libraries and indices shift over time, you can actively inspect the current configurations or find alternative public configurations by visiting the main hub at the **[OpenNX Index Forwarder Portal](https://opennx.github.io/)**.
+
+If your library screen fails to populate after entering the configuration steps above, it is rarely a problem with Cyberfoil itself. Instead, the backend endpoint or index host might be undergoing scheduled data syncs or suffering an unexpected downtime window. Before tearing your system configurations apart, always check the operational status of the index mirrors using the live tracker dashboard over at the **[Tinfoil Shops Status Dashboard](https://melogabriel.github.io/tinfoil-shops-status/)**.
+
+If a repository is listed as green/operational there but shows blank on your screen, double-check that your console clock is synchronized via internet servers in your Switch System Settings.
 
 ***
 
