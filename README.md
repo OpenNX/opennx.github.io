@@ -9,7 +9,7 @@ Built with the [Tinfoil Documentation](https://blawar.github.io/tinfoil/custom_i
 
 If you find this tool useful, please consider starring our repository: [Star on Github](https://github.com/OpenNX/opennx.github.io) 
 
-To check which tinfoil shops are working now, go to [this page](https://melogabriel.github.io/tinfoil-shops-status/).
+To check which tinfoil shops are working now, go to [this page](https://melogabriel.github.io/tinfoil-shops-status/) or follow [Tinfoil Status BlueSky](https://bsky.app/profile/tinfoilstatus.bsky.social).
 
 If you have any shops to add, open an [issue](https://github.com/OpenNX/opennx.github.io/issues/new/choose) or make a [pull request](https://github.com/OpenNX/opennx.github.io/pulls).
 
