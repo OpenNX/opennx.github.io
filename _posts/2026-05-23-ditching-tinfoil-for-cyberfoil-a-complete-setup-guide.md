@@ -57,46 +57,68 @@ Once opened, you will be greeted by Cyberfoil's clean, modern tile layout:
 
 ---
 
-### Step 3: Configuring the OpenNX Shop Repository
-Tinfoil relies on adding traditional, sometimes bloated index URLs. Cyberfoil simplifies this by reading clean JSON index configurations. We will look at the public OpenNX forwarder config hosted transparently at `opennx.github.io/cyberfoil.json`.
+### Step 3: Configuring Your Shop Repositories
+Cyberfoil reads clean JSON index configurations rather than traditional, bloated index URLs. Below are the setup steps for the major index sources supported by the Cyberfoil ecosystem.
 
-1. **Open the Settings Menu:** Using the D-Pad or touch controls, select the **Settings** tile gear icon at the bottom center of the main screen. Once inside, press **L** or **R** to jump over to the **Shop** section tab on the left menu sidebar.
-2. **Select Add New Shop:** Scroll down the Shop list options and select **Add new shop**.
-   
-   ![](https://github.com/user-attachments/assets/4a1900a4-9462-4378-88c7-38c6e794e89e)
+To begin adding any shop, navigate to the setup interface first:
+* On the Cyberfoil homepage, select the **Settings** gear tile. 
+* Press **L** or **R** to open the **Remote** (or *Shop*) tab on the sidebar.
+* Select **Add new shop**.
 
-3. **Set the Shop Protocol:** A prompt will appear asking you to choose the network protocol. Select **HTTPS** to ensure a secure connection to the repository host.
-   
-  ![](https://github.com/user-attachments/assets/fc3bf98d-df05-4c8a-8e58-c1509f615943)
-
-4. **Select the Shop Port:** Next, the app will ask you to pick which port to use. Select **Use default (443)** which is the standard automated port assignment for secure web connections.
-   
-   ![](https://github.com/user-attachments/assets/72efb55b-eee8-443b-a0dd-48328181be6d)
-
-5. **Input the OpenNX Server Paths:** You will now be prompted to fill in the exact server addresses. Enter the following details carefully:
+#### Option A: The Public OpenNX Forwarder
+1. Set the Protocol to **HTTPS**.
+2. Set the Port to **Use default (443)**.
+3. Input the server details:
    * **Host:** `opennx.github.io`
    * **Path:** `/cyberfoil.json`
    * **Title:** `Open NX`
-   
-   *(Leave Username and Password completely **blank**, as this public repository forwarder doesn't require private authentication).*
-6. **Enable Tinfoil Mode Compatibility:** Before exiting, make sure the **Tinfoil Mode (legacy shop compatibility)** checkbox is ticked. This ensures that the custom index parsing structures mapped by OpenNX translate perfectly onto Cyberfoil's modern UI environment.
-   
-   ![](https://github.com/user-attachments/assets/ae4b7bb3-225d-4aac-ae18-161bcb0e06b2)
+   *(Leave Username and Password completely blank).*
+4. Enable **Tinfoil Mode (legacy shop compatibility)** by checking the box before exiting.
+
+#### Option B: [Magic Monkei](https://dashboard.magicmonkei.com/pt/signup?ref=opennx) Private Server
+
+**Registration:**
+1. Before configuring your console, go to the [Magic Monkei Registration Portal](https://dashboard.magicmonkei.com/pt/signup?ref=opennx) to set up your account.
+2. Complete the registration steps to generate your unique Tinfoil/Cyberfoil credentials.
+
+**Console Setup:**
+1. Enter the shop name: `Magic Monkei`, then press OK.
+2. Select Protocol **HTTPS**.
+3. Fill in the host: `cyberfoil.magicmonkei.com`, then press OK.
+4. Press to use the default port 443 — **Use default (443)**.
+5. Fill in your private username from your [Magic Monkei Dashboard](https://dashboard.magicmonkei.com/pt/signup?ref=opennx), then press OK.
+6. Fill in your private password from your [Magic Monkei Dashboard](https://dashboard.magicmonkei.com/pt/signup?ref=opennx), then press OK.
+7. Confirm to add the shop to your favorites — **Yes**.
+
+#### Option C: [Pixel Goblin](https://pixelgoblin.link/r/awarelocale28) Private Server
+
+**Registration:**
+1. Before setting up your console, visit the [Pixel Goblin Sign-up Page](https://pixelgoblin.link/r/awarelocale28) to secure your active community access.
+2. Note down the specialized Username and Password credentials assigned to your profile.
+
+**Console Setup:**
+1. Enter the shop name: `Pixel Goblin`, then press OK.
+2. Select Protocol **HTTPS**.
+3. Fill in the server details:
+   * **Host:** `pixelgoblin.link`
+   * **Port:** `443`
+   * **Path:** `/api/shop`
+4. Enter your unique **Username** and **Password** from your private [Pixel Goblin Registration Fields](https://pixelgoblin.link/r/awarelocale28).
+5. Confirm. [Pixel Goblin](https://pixelgoblin.link/r/awarelocale28) will now appear in your active shop list.
 
 ---
 
 ### Step 4: Refresh and Browse Your Library
-Once the network path is locked in:
+Once your chosen network paths are locked in:
 
 1. Press **B** to back out and save your settings, then **Restart Cyberfoil** (or trigger a manual refresh from the application UI).
-2. The app will fetch the layout directly from `https://opennx.github.io/cyberfoil.json`.
-3. Select the **Install from eShop** tile on your main menu. Your game lists, active updates, and library titles will instantly populate on the screen, ready for a smoother, faster experience than traditional Tinfoil layouts.
+2. Select the **Install from eShop** tile on your main menu. Your game lists, active updates, and library titles will instantly populate on the screen, ready for a smoother, faster experience.
 
 ---
 
 ### Verifying Repositories & Uptime Troubleshooting
 
-Because the underlying libraries and indices shift over time, you can actively inspect the current configurations or find alternative public configurations by visiting the main hub at the **[OpenNX Index Forwarder Portal](https://opennx.github.io/)**.
+Because the underlying libraries and indices shift over time, you can actively inspect current configurations or find alternative public configurations like [Magic Monkei](https://dashboard.magicmonkei.com/pt/signup?ref=opennx) or [Pixel Goblin](https://pixelgoblin.link/r/awarelocale28) by visiting the main hub at the **[OpenNX Index Forwarder Portal](https://opennx.github.io/)**.
 
 If your library screen fails to populate after entering the configuration steps above, it is rarely a problem with Cyberfoil itself. Instead, the backend endpoint or index host might be undergoing scheduled data syncs or suffering an unexpected downtime window. Before tearing your system configurations apart, always check the operational status of the index mirrors using the live tracker dashboard over at the **[Tinfoil Shops Status Dashboard](https://melogabriel.github.io/tinfoil-shops-status/)**.
 
