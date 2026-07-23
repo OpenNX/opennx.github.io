@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Active Tinfoil Shops Review & Comparison"
+title: "Active Tinfoil Shops Review & Comparison - July 2026"
 date: 2026-07-06
 categories: reviews guides tinfoil
 ---
