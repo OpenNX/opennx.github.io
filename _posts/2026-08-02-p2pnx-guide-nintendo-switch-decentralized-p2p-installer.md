@@ -47,14 +47,14 @@ Instead of pulling files from a single centralized host, your console connects t
 
 ## Advantages & Disadvantages
 
-### 🟢 Advantages
+### Advantages
 
 * **Complete Resilience Against Downtime:** Because it doesn't rely on a single central server, the app won't go down if an individual host closes.
 * **Open Source & Community Audited:** Like Cyberfoil and open-source Tinfoil community projects, P2PNX allows code inspection for safety and performance tuning.
 * **No Server Infrastructure Costs:** Allows the community to share files without relying exclusively on expensive private hosting setups.
 * **Modern CFW Native Integration:** Built from scratch to run smoothly on recent Atmosphère firmwares without requiring unstable patches.
 
-### 🔴 Disadvantages
+### Disadvantages
 
 * **Download Speeds Depend on Seeders:** If only a few peers are sharing a specific file, speeds can be significantly slower than dedicated private endpoints.
 * **Higher Battery & CPU Usage:** The BitTorrent protocol performs continuous hashing verification, requiring more processing power and battery consumption on the Switch than simple HTTPS streaming.
