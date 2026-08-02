@@ -192,13 +192,17 @@ Title: Open NX
 https://www.reddit.com/r/SWITCH2XCI/
 ```
 
----
-
 ### [Telegram Bot](https://t.me/NSW_TorrentLibrary)
 
 ```
 https://t.me/NSW_TorrentLibrary
 ```
+
+### [P2PNX](https://opennx.github.io/p2pnx-guide-nintendo-switch-decentralized-p2p-installer/) — A Decentralized Peer-to-Peer Installer
+
+If you are looking for a server-independent option, **P2PNX** introduces native BitTorrent peer-to-peer sharing to custom firmware. Check out our step-by-step [P2PNX Setup Guide](https://opennx.github.io/p2pnx-guide-nintendo-switch-decentralized-p2p-installer/) to learn how to configure P2P downloads and safely participate in community swarms.
+
+---
 
 ## Requirements
 
