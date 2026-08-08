@@ -21,9 +21,9 @@ Before you begin, ensure you have the following:
 
 Installing Tinfoil is a straightforward process.
 
-1.  **Download:** Get the latest version of Tinfoil from a trusted source. It usually comes as a `.zip` file containing a file named `tinfoil.nro`.
-2.  **Copy to SD Card:** Extract the `.zip` file. On your Switch's SD card, navigate to the `/switch/` folder. Place the `tinfoil.nro` file inside this folder.
-3.  **Launch:** Insert the SD card back into your Switch and boot into Atmosphère. Open the Homebrew Menu, and you should see the Tinfoil icon. Select it to launch the application for the first time.
+1. **Download:** Get the latest version from the [Official Tinfoil Download Page](https://tinfoil.io/Download#download). It usually comes as a `.zip` file containing a file named `tinfoil.nro` or an automated installer bundle.
+2. **Copy to SD Card:** Extract the `.zip` file. On your Switch's SD card, navigate to the `/switch/` folder. Place the `tinfoil.nro` file inside this folder.
+3. **Launch:** Insert the SD card back into your Switch and boot into Atmosphère. Open the Homebrew Menu, and you should see the Tinfoil icon. Select it to launch the application for the first time.
 
 Tinfoil may take a moment to set itself up on the first launch, creating necessary folders on your SD card.
 
@@ -34,28 +34,32 @@ Tinfoil offers several ways to install content onto your Switch. Here are the mo
 #### Method 1: Installing from the SD Card
 
 This is the most basic method.
-1.  Place your game files (in `.nsp`, `.nsz`, or `.xci` format) anywhere on your SD card. A folder named `install` or `games` on the root of the card is a good practice.
-2.  In Tinfoil, navigate to the **"File Browser"** tab.
-3.  Browse to the location of your game files on the SD card.
-4.  Select the file you wish to install and follow the on-screen prompts. Choose to install to either the SD card or the internal system memory (NAND).
+1. Place your game files (in `.nsp`, `.nsz`, or `.xci` format) anywhere on your SD card. A folder named `install` or `games` on the root of the card is a good practice.
+2. In Tinfoil, navigate to the **"File Browser"** tab.
+3. Browse to the location of your game files on the SD card.
+4. Select the file you wish to install and follow the on-screen prompts. Choose to install to either the SD card or the internal system memory (NAND).
 
 #### Method 2: Installing Over USB from a PC
 
 This method is very useful as it saves you from having to copy large game files to your SD card first.
 
-1.  **Download a PC-side tool.** You will need an application for your computer like **NS-USBloader**.
-2.  **Connect your Switch.** On your Switch, open Tinfoil and navigate to the **"Options"** tab. Scroll down and enable "Install Unsigned Code".
-3.  Connect your Switch to your PC using a USB-C cable.
-4.  **Send the file from your PC.** Open NS-USBloader on your computer, select the game `.nsp` file, and send it to the Switch. The installation will begin automatically in Tinfoil.
+1. **Download a PC-side tool.** You will need an application for your computer like **NS-USBloader**.
+2. **Connect your Switch.** On your Switch, open Tinfoil and navigate to the **"Options"** tab. Scroll down and enable "Install Unsigned Code".
+3. Connect your Switch to your PC using a USB-C cable.
+4. **Send the file from your PC.** Open NS-USBloader on your computer, select the game `.nsp` file, and send it to the Switch. The installation will begin automatically in Tinfoil.
 
 #### Method 3: Adding a Network Location ("Shop")
 
 This is Tinfoil's most famous feature. It allows you to add network locations, often called "shops," to browse and download content directly to your Switch.
 
-1.  In Tinfoil, go to the **"File Browser"** tab.
-2.  Press the `-` (minus) or `+` (plus) button on your controller to bring up the location entry menu.
-3.  Enter the details for the network location you wish to add. You will need to provide information like the **Protocol** (e.g., `https`), **Host** (e.g., `opennx.github.io`), and an optional **Title**.
-4.  Once added, the new location will appear in your File Browser, and its content may also populate the "New Games" and other tabs.
+1. In Tinfoil, go to the **"File Browser"** tab.
+2. Press the `-` (minus) or `+` (plus) button on your controller to bring up the location entry menu.
+3. Enter the details for the network location you wish to add. You will need to provide information like the **Protocol** (e.g., `https`), **Host** (e.g., `opennx.github.io`), and an optional **Title**.
+4. Once added, the new location will appear in your File Browser, and its content may also populate the "New Games" and other tabs.
+
+If you are looking for active, paid shop alternatives offering high-speed dedicated servers and maximum uptime, you can set up accounts with **[Magic Monkei](https://dashboard.magicmonkei.com/pt/signup?ref=opennx)** or **[Pixel Goblin](https://pixelgoblin.link/r/awarelocale28)**.
+
+Before configuring new network locations or troubleshooting offline errors, you can verify whether a shop is operational by checking the live **[Tinfoil Shops Status Dashboard](https://melogabriel.github.io/tinfoil-shops-status/)**.
 
 ### Best Practices for Safe Usage
 
