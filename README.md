@@ -142,7 +142,7 @@ Host: nx-saves.ghostland.at
 Title: NX Shared Saves
 ```
 
-### Egg Fried Rize Shop
+### Egg Fried Rice Shop
 ```
 Protocol: https
 Host: cyrilz87.net
